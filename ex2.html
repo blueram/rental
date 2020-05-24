@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>docu</title>
+  </head>
+
+
+
+
+
+<bady>
+
+<div id ="nametext"> </div>
+<div id ="numtext"> </div>
+<div id ="sumtext"> </div>
+<div id ="srt"> </div>
+
+
+<script>
+
+var name = window.prompt("기존 사용값을 입력해봐");
+var num = window.prompt("신규 가격을 입력해봐");
+var name1 = parseInt(name);
+var num1 = parseInt(num);
+var sum = name1 + num1;
+
+
+
+
+
+// console.log(name);
+
+
+document.getElementById("nametext").innerText = name;
+document.getElementById("numtext").innerText = num;
+document.getElementById("sumtext").innerText = sum;
+addComma(sumtext);
+
+
+
+</script>
+
+  </body>
+
+
+
+</html>
