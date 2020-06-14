@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>docu</title>
+  </head>
+
+
+<style>
+input 
+{font-size : 15 px  ;
+align-content: center;
+width: 6cm;
+height: 1cm;
+padding: 2px;
+margin: 2px;
+left: 2px;
+}
+
+textarea
+{
+
+font-size: large; text-align: center; text-decoration: chartreuse; flood-color: blue;  padding-top: 19px;
+}
+</style>
+
+
+<bady>
+
+  <input onkeyup="enterkey();" type="number" id="input1" > 상품 1 <br>
+  <input onkeyup="enterkey();" type="number" id="input2" > 상품 2 <br>
+  <input onkeyup="enterkey();" type="number" id="input3" > 상품 3 <br>
+  <textarea id="output">상품 합계</textarea>
+
+  <button onclick="input()">계산(엔터)</button>
+    
+  
+  <!-- 아래부터 자바스크립트 -->
+  <script type="text/javascript">
+  var temp;
+  
+  function input(){
+  var input1 = document.getElementById("input1").value;
+  var input2 = document.getElementById("input2").value;
+  var input3 = document.getElementById("input3").value;
+
+  temp = (+input1+ +input2+ +input3)  * 36;
+  document.getElementById("output").value = temp;
+
+  }
+  
+  /* 엔터티 받는 스크릅트*/
+
+  function enterkey() {
+        if (window.event.keyCode == 13) {
+ 
+         input();
+        }
+}
+
+/* 콤마 찍는 스크릅트*/
+
+function inputNumberFormat(obj) {
+    obj.value = comma(uncomma(obj.value));
+}
+
+function comma(str) {
+    str = String(str);
+    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+}
+
+function uncomma(str) {
+    str = String(str);
+    return str.replace(/[^\d]+/g, '');
+}
+
+  
+</script>
+  
+
+
+
+
+
+
+
+  </body>
+
+
+
+</html>
