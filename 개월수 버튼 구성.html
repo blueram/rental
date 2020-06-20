@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>계산기 만들기 v0.1</title>
+  </head>
+
+
+<bady>
+  
+  <input onkeyup="enterkey();" type="number" id="input1" > 기본 36개월 엔터 (월요금) <br>
+  <button type="button" id="m36" value="36" onclick="input36()"> 36개월 </button>
+  <button type="button" id="m48" value="48" onclick="input48()"> 48개월 </button>
+  <button type="button" id="m60" value="60" onclick="input60()"> 60개월 </button>
+  <br>
+  <br>
+  <textarea id="output"> 결과값 </textarea>
+
+  
+  <!-- 아래부터 자바스크립트 -->
+  <script type="text/javascript">
+  var temp;
+  
+  function input36(){
+  var m36 = document.getElementById("m36").value;
+  var input1 = document.getElementById("input1").value;
+
+  temp = +input1 * m36;
+  
+  document.getElementById("output").value = temp;
+  document.getElementById("total").value = tot;
+  }
+  
+// 48개월 버튼 실행시
+  function input48(){
+  var m48 = document.getElementById("m48").value;
+  var input1 = document.getElementById("input1").value;
+
+  temp = +input1 * m48;
+  
+  document.getElementById("output").value = temp;
+  document.getElementById("total").value = tot;
+  }
+
+ // 60개월 버튼 실행시
+  function input60(){
+  var m60 = document.getElementById("m60").value;
+  var input1 = document.getElementById("input1").value;
+
+  temp = +input1 * m60;
+  
+  document.getElementById("output").value = temp;
+  document.getElementById("total").value = tot;
+  }
+
+
+  /* 엔터키 받는 스크릅트*/
+
+  function enterkey() {
+        if (window.event.keyCode == 13) {
+          input36()        
+        }
+}
+
+/* 콤마 찍는 스크립트*/
+
+  
+</script>
+  
+
+
+
+
+
+
+
+  </body>
+
+
+
+</html>

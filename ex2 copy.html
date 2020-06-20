@@ -1,37 +1,15 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>docu</title>
-  </head>
-
-
-
-
-
-<bady>
-<p> 함수를 공부합시다. </p>
-<div id="number"></div>
-
-<script>
-
-function num()
-
-{ 
-  i=0;
-  var y = window.prompt("기존 사용값을  입력해봐");
-  while(i<y)
-  {  
-  document.write(i + "<br />");
-   i += 1;
-document.querySelector("#number").innerHTML= i ;
-} }
-num();
-
+<body>
+  <input type="text" id="i">
+  
+  <script>
+  document.getElementById("i").addEventListener('input', (e) => {
+    const i = e.target;
+    const startPosition = i.value.length - i.selectionEnd;
+    i.value = i.value.replace(/^0+|\D+/g, '').replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+    const len = Math.max(i.value.length - startPosition, 0);
+    i.setSelectionRange(len, len);
+  });
 </script>
 
-  </body>
-
-
-
-</html>
+</body>

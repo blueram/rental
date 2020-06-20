@@ -1,21 +1,31 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>docu</title>
+    <title>계산기 만들기 v0.1</title>
   </head>
 
 
-
-
-
 <bady>
-  <input onkeyup="enterkey();" type="number" id="input1" > 상품값을 입력하세요 <br>
-  <input onkeyup="enterkey();" type="number" id="input2" > 상품값을 입력하세요 <br>
+  
+  <총 사용 금액><br>
+  <textarea id="total" id="toTal"></textarea>
+    <br>
+  
+  <기존 사용중인 금액><br>
+  <input type="number" id="afterSum">  <br>
+  
+  <br>
+
+  <input onkeyup="enterkey();" type="number" id="input1" > 상품 (월요금) <br>
+  <button type="button" id="m36"> 36개월 </button><button type="button" id="m48"> 48개월 </button><button type="button" id="m60"> 60개월 </button> <p>
+
+      <input onkeyup="enterkey();" type="number" id="input2" > 상품값을 입력하세요 <br>
   <input onkeyup="enterkey();" type="number" id="input3" > 상품값을 입력하세요 <br>
+
+  <br>
   <textarea id="output">결과값 출력</textarea>
 
-  <button onclick="input()">입력받기</button>
+  <button onclick="input()">가능 한도 확인</button>
     
   
   <!-- 아래부터 자바스크립트 -->
@@ -23,13 +33,17 @@
   var temp;
   
   function input(){
+  var totalsum = document.getElementById("afterSum").value; 
   var input1 = document.getElementById("input1").value;
   var input2 = document.getElementById("input2").value;
   var input3 = document.getElementById("input3").value;
+  var m36 = document.getElementById("m36").value;
 
-  temp = +input1+ +input2+ +input3;
+  temp = +input1 + +input2+ +input3;
+  tot = +temp + +totalsum;
+
   document.getElementById("output").value = temp;
-
+  document.getElementById("total").value = tot;
   }
   
   /* 엔터키 받는 스크릅트*/
