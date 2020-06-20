@@ -23,12 +23,21 @@
   function input36(){
   var m36 = document.getElementById("m36").value;
   var input1 = document.getElementById("input1").value;
+  var temp = +input1 * m36;
+//  addComma(temp);
 
-  temp = +input1 * m36;
-  
-  document.getElementById("output").value = temp;
-  document.getElementById("total").value = tot;
+  document.getElementById("output").value = addComma(temp);
   }
+
+  // 콤마를 넣어주는 함수 
+
+   function addComma(value){
+   temp = /\B(?=(\d{3})+(?!\d))/g;
+   return value.toString().replace(temp, ',');
+    }
+
+
+
   
 // 48개월 버튼 실행시
   function input48(){
@@ -37,8 +46,8 @@
 
   temp = +input1 * m48;
   
-  document.getElementById("output").value = temp;
-  document.getElementById("total").value = tot;
+  document.getElementById("output").value = addComma(temp);
+  
   }
 
  // 60개월 버튼 실행시
@@ -48,8 +57,8 @@
 
   temp = +input1 * m60;
   
-  document.getElementById("output").value = temp;
-  document.getElementById("total").value = tot;
+  document.getElementById("output").value = addComma(temp);
+  
   }
 
 
@@ -62,15 +71,9 @@
 }
 
 /* 콤마 찍는 스크립트*/
-
   
 </script>
   
-
-
-
-
-
 
 
   </body>
