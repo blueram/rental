@@ -8,8 +8,9 @@
 <body>
    <p> 자바스크립트 계산기 만들기</p>  <br>
 
+   <!-- 1번째 상품가격 받는 곳 -->
   <input onkeyup="enterkey()"; type="number" id="input1" >
-  <br> <dvi>* 기본 36개월 엔터 </dvi> <br> 
+  <dvi>* 기본 36개월 엔터 </dvi> <br> 
           <button type="button" id="m36" value="36" 
                  onclick="inputMonth(this.value)"> 36개월 </button>
         <button type="button" id="m48" value="48" 
@@ -17,7 +18,21 @@
         <button type="button" id="m60" value="60" 
                 onclick="inputMonth(this.value)"> 60개월 </button>
   <br>
+  <br><br>
+
+<!-- 2번째 상품가격 받는 곳 -->
+
+  <input onkeyup="enterkey()"; type="number" id="input2" >
+  <dvi>* 기본 36개월 엔터 </dvi> <br> 
+          <button type="button" id="mm36" value="36" 
+                 onclick="inputMonth(this.value)"> 36개월 </button>
+        <button type="button" id="mm48" value="48" 
+                onclick="inputMonth(this.value)"> 48개월 </button>
+        <button type="button" id="mm60" value="60" 
+                onclick="inputMonth(this.value)"> 60개월 </button>
   <br>
+  <br>
+
   <textarea id="output"> 결과 </textarea>
 
   <!-- 아래부터 자바스크립트 -->
@@ -27,7 +42,8 @@
   function inputMonth(value){
     var month = value;
     var input1 = document.getElementById("input1").value;
-    var temp = +input1 * month;
+    var input2 = document.getElementById("input2").value;
+    var temp = (+input1 * month) + (+input2 * month)
     document.getElementById("output").value = 
       temp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
