@@ -5,7 +5,9 @@ body {
 }
 
 p {
-	margin-top:80px;
+	margin-top:60px;
+	border: 12px;
+	border-bottom: aqua;
 	font-size:2.5em;
 	font-weight:700;
 	text-align: left;
