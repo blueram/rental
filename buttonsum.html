@@ -9,12 +9,13 @@
 
     <button type="button" onclick="location.href='index.html'">me !</button>
 
-   <p> 렌탈 계산기 v0.1 </p>  <br>
+   <p> 렌탈 계산기 v0.2 </p>  <br>
 
 
    <!-- 1번째 상품가격 받는 곳 -->
-   <상품1>
-  <input onkeyup="enterkey()"; type="number" id="input1" >
+   <상품1><br>
+  <input onkeyup="enterkey()"; type="number" id="input1" > 
+  <textarea id="inputSumOutput" > 총가격</textarea><br>
   <dvi>* 기본 36개월 엔터 </dvi> <br> 
           <button type="button" id="m36" value="36" 
                  onclick="inputMonth(this.value)"> 36개월 </button>
@@ -26,15 +27,16 @@
   <br><br>
 
 <!-- 2번째 상품가격 받는 곳 -->
-<상품2>
+<상품2><br>
   <input onkeyup="enterkey()"; type="number" id="input2" >
-  <dvi>* 기본 36개월 엔터 </dvi> <br> 
+  <textarea id="inputSumOutput2" > 총가격</textarea><br>
+<br>  <dvi>* 기본 36개월 엔터 </dvi> <br> 
           <button type="button" id="mm36" value="36" 
-                 onclick="inputMonth(this.value)"> 36개월 </button>
+                 onclick="inputMonth2(this.value)"> 36개월 </button>
         <button type="button" id="mm48" value="48" 
-                onclick="inputMonth(this.value)"> 48개월 </button>
+                onclick="inputMonth2(this.value)"> 48개월 </button>
         <button type="button" id="mm60" value="60" 
-                onclick="inputMonth(this.value)"> 60개월 </button>
+                onclick="inputMonth2(this.value)"> 60개월 </button>
   <br>
   <br><br><br>
 
@@ -45,16 +47,37 @@
   <!-- 아래부터 자바스크립트 -->
   <script type="text/javascript">
   var temp;
-  
+  var temp2;
   function inputMonth(value){
     var month = value;
     var input1 = document.getElementById("input1").value;
+    var temp1 = (+input1 * month)
+    var temp2 = (+input2 * month)
+    var temp = +temp1 + temp2
+
+    document.getElementById("inputSumOutput").value = 
+      temp1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); // 상품1 가격 총 가격
+
+    document.getElementById("output").value = 
+      temp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+      
+  }
+
+  function inputMonth2(value){
+    var month = value;
     var input2 = document.getElementById("input2").value;
-    var temp = (+input1 * month) + (+input2 * month)
+    var temp1 = (+input1 * month)
+    var temp2 = (+input2 * month)
+    var temp =  +temp2 + +temp1
+
+    document.getElementById("inputSumOutput2").value = 
+    temp2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); // 상품2 가격 총 가격
+
     document.getElementById("output").value = 
       temp.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-
+   
   /* 엔터키 받는 스크릅트*/
 
   function enterkey() {
