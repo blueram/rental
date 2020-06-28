@@ -1,0 +1,210 @@
+body {
+}
+
+.container {
+
+	
+}
+
+
+.accordion {
+    box-sizing: border-box;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    width: 100%;
+}
+
+.accordion-select {
+    cursor: pointer;
+    margin: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+.accordion-title {
+    position: relative;
+}
+
+.accordion-title:not(:nth-last-child(2))::after {
+    border: 1px solid transparent;
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.accordion-title span {
+    bottom: 0px;
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.accordion-content {
+    box-sizing: border-box;
+    overflow: auto;
+    position: relative;
+    transition: margin 0.3s ease 0.1s;
+}
+
+.accordion-select:checked + .accordion-title + .accordion-content {
+    margin-bottom: 0;
+    margin-right: 0;
+}
+
+/* Generated styles starts here */
+
+.accordion {
+    border-color: #16535f;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    flex-direction: column;
+    height: auto;
+} 
+
+.accordion-title,
+.accordion-select  {
+    background-color: #357784;
+    color: #05363f;
+    width: 100%;
+    height: 64px;
+    font-size: 15px;
+}
+
+.accordion-select {
+    margin-bottom: -64px;
+    margin-right: -64px;
+}
+
+.accordion-title:not(:nth-last-child(2))::after {
+    border-bottom-color: rgb(27, 109, 125);
+    border-right-color: transparent;
+} 
+
+.accordion-select:hover + .accordion-title,
+.accordion-select:checked + .accordion-title {
+    background-color: #3c9bae;
+} 
+
+ .accordion-title span  {	
+    transform: rotate(0deg);
+    -ms-writing-mode: lr-tb;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+    padding-left: 32px;
+    padding-right: 32px;
+    line-height: 64px;
+} 
+
+.accordion-content {
+    background-color: #e2e2e2;
+    color: #475052;
+    height: 490px;
+    margin-bottom: -490px;
+    margin-right: 0;
+    padding: 30px;
+    width: 100%;
+} 
+
+.top{
+
+	font-family:Arial;
+	font-size:35px;
+
+}
+
+
+.nOlv {
+	background-color:#dbdbdb;
+	border-radius:28px;
+	border:1px solid #7a7a7a;
+	display:inline-block;
+	cursor:pointer;
+	color:#0e0404;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #dbdbdd;
+}
+.nOlv:hover  {
+	background-color:#1825b8;
+}
+.nOlv:active {
+	position:relative;
+	top:1px;
+}
+
+.bLue {
+	background-color:#4575c7;
+	border-radius:28px;
+	border:1px solid #1e19ab;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #282d66;
+}
+.bLue:hover {
+	background-color:#1825b8;
+}
+.bLue:active {
+	position:relative;
+	top:1px;
+}
+
+
+.gReen {
+	background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.gReen:hover {
+	background-color:#5cbf2a;
+}
+.gReen:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+.yEllow {
+	background-color:#c7c748;
+	border-radius:28px;
+	border:1px solid #ab9819;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #626629;
+}
+.yEllow:hover {
+	background-color:#f7eb00;
+}
+.yEllow:active {
+	position:relative;
+	top:1px;
+}
+
+
+
