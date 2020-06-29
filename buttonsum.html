@@ -11,22 +11,25 @@
 <div class="container">
   
 <h1 id="sample"> 렌탈 계산기 (가능한도 조회용) </h1>
+결제방식 : 
+<input type="checkbox" id="Card"> 신용카드
+<input type="checkbox" id="Bank"> 자동이체
+<br>
 
 <section class="top">
-<div>기존사용 총금액</div>
-<input type="number" id="now" > 
+<a>사용중인 금액</a> 
+<button type="button" id="addNow"> 복사값 붙이기</button>
+<button type="button" onclick="now(0)" id="new"> 신규 0원</button>
 <br>
-<a href="#" class="nOlv">등급모름</a>
-<a href="#" class="bLue">Blue</a>
-<a href="#" class="gReen">Green</a>
-<a href="#" class="yEllow">Yallow</a>
-
+<input type="number" id="now" > 
 
 </section>
 
 <section class="mid">
-<div>월 납부요금</div>
-<input type="number" id="input1" >
+<div>월 납부요금</div> 
+<button type="button" onclick="add100()" id="add"> + 100원</button>
+<input type="number" id="input1" value=0 ><br>
+<input type=button value="증가" onClick="javascript:this.form.input1.value++;">
 <button type="button" onclick="retalSum(36)" id="b36" value="36">36</button>
 <button type="button" onclick="retalSum(48)" id="b36" value="36">48</button>
 <button type="button" onclick="retalSum(60)" id="b36" value="36">60</button>
@@ -37,7 +40,15 @@
 <section class="end">
 <div>총 금액</div>
 <textarea id="inputSumOutput" >  </textarea><br>
+
 </div>
+
+<br>
+<a href="#" class="nOlv">등급모름</a>
+<a href="#" class="bLue">Blue</a>
+<a href="#" class="gReen">Green</a>
+<a href="#" class="yEllow">Yallow</a>
+
 </section>
 
 
@@ -60,6 +71,22 @@ var input1 = document.getElementById("input1").value;
  document.getElementById("inputSumOutput").value =
 tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+}
+
+function now(a)
+{
+var now = a ;
+document.getElementById("now").value = now;
+}
+
+
+function add100()
+{
+  var a1
+  var input1 = 100+a1 ;
+document.getElementById("input1").value = input1;
+console.log (input1);
+input1 = a1+ 100
 }
 
 </script>
