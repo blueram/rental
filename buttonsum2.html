@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>웹 브라우저 창에 표시하기</title>
+
+	<style>
+
+	</style>
+</head>
+
+<body>	
+<button id="reset" type="button" onclick="reset()">초기화</button><br><br>
+
+
+현재 사용중인 금액
+<input type="text" id="now">
+<br><br>
+
+신규 추가 금액 
+<br>
+
+<input type="text" id="input1" onkeyup="enterkey1(36)">
+<input type="button" id="m36" value="36" onclick="a1(36)"> 
+<input type="button" id="m48" value="48" onclick="a1(48)"> 
+<input type="button" id="m60" value="60" onclick="a1(60)"> 
+<input type="text" id="output1">
+<br>
+<input type="text" id="input2"onkeyup="enterkey2(36)">
+<input type="button" id="m36" value="36" onclick="a2(36)"> 
+<input type="button" id="m48" value="48" onclick="a2(48)"> 
+<input type="button" id="m60" value="60" onclick="a2(60)"> 
+<input type="text" id="output2">
+
+<br>
+<input type="text" id="input3"onkeyup="enterkey3(36)">
+<input type="button" id="m36" value="36" onclick="a3(36)"> 
+<input type="button" id="m48" value="48" onclick="a3(48)"> 
+<input type="button" id="m60" value="60" onclick="a3(60)"> 
+<input type="text" id="output3">
+
+<br><br>
+총 렌탈사용 요금
+<input type="text" id="tot" onclick="tot()" >
+
+<script>
+var m1 = 0;
+var m2 = 0;
+var m3 = 0;
+
+function a1(m) {
+	var month = m;
+	var a1 = document.getElementById ("input1").value;
+	var m1 = a1 * month
+	document.getElementById ("output1").value = m1; 
+
+
+	var mm1 = document.getElementById ("output1").value;
+	var mm2 = document.getElementById ("output2").value;
+	var mm3 = document.getElementById ("output3").value;
+	var now = document.getElementById ("now").value;
+	var tot = +mm1 + +mm2 + +mm3 + +now;
+	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+
+
+
+}
+
+function a2(m) {
+	var month = m;
+	var a2 = document.getElementById ("input2").value;
+	var m2 = a2 * month;
+	var tot = m1 + m2 + m3;
+	document.getElementById ("output2").value = m2; 
+
+	var mm1 = document.getElementById ("output1").value;
+	var mm2 = document.getElementById ("output2").value;
+	var mm3 = document.getElementById ("output3").value;
+	var now = document.getElementById ("now").value;
+	var tot = +mm1 + +mm2 + +mm3 + +now;
+	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+
+
+}
+
+function a3(m) {
+	var month = m;
+	var a3 = document.getElementById ("input3").value;
+	var m3 = a3 * month
+	document.getElementById ("output3").value = m3;
+
+	var mm1 = document.getElementById ("output1").value;
+	var mm2 = document.getElementById ("output2").value;
+	var mm3 = document.getElementById ("output3").value;
+	var now = document.getElementById ("now").value;
+	var tot = +mm1 + +mm2 + +mm3 + +now;
+	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+}
+
+
+	function enterkey1(m) {
+        if (window.event.keyCode == 13){
+	var month = m;
+	var a1 = document.getElementById ("input1").value;
+	var m1 = a1 * month
+	document.getElementById ("output1").value = m1; 
+
+
+	var mm1 = document.getElementById ("output1").value;
+	var mm2 = document.getElementById ("output2").value;
+	var mm3 = document.getElementById ("output3").value;
+	var now = document.getElementById ("now").value;
+	var tot = +mm1 + +mm2 + +mm3 + +now;
+	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+		}
+
+}
+
+function enterkey2(m) {
+        if (window.event.keyCode == 13){
+	var month = m;
+	var a2 = document.getElementById ("input2").value;
+	var m2 = a2 * month
+	document.getElementById ("output2").value = m2; 
+
+
+	var mm1 = document.getElementById ("output1").value;
+	var mm2 = document.getElementById ("output2").value;
+	var mm3 = document.getElementById ("output3").value;
+	var now = document.getElementById ("now").value;
+	var tot = +mm1 + +mm2 + +mm3 + +now;
+	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+		}
+
+}
+
+function enterkey3(m) {
+        if (window.event.keyCode == 13){
+	var month = m;
+	var a3 = document.getElementById ("input3").value;
+	var m3 = a3 * month
+	document.getElementById ("output3").value = m3; 
+
+
+	var mm1 = document.getElementById ("output1").value;
+	var mm2 = document.getElementById ("output2").value;
+	var mm3 = document.getElementById ("output3").value;
+	var now = document.getElementById ("now").value;
+	var tot = +mm1 + +mm2 + +mm3 + +now;
+	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+		}
+
+}
+
+function reset() {
+
+	document.getElementById ("input1").value = 0
+	document.getElementById ("input2").value = 0
+	document.getElementById ("input3").value = 0
+	document.getElementById ("output1").value = 0
+	document.getElementById ("output2").value = 0
+	document.getElementById ("output3").value = 0
+	document.getElementById ("tot").value = 0
+	document.getElementById ("now").value = 0
+
+
+}
+
+
+
+</script>
+</body>
+</html>
