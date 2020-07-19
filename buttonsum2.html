@@ -23,27 +23,33 @@
 <br>
 
 <input type="text" id="input1" onkeyup="enterkey1(36)">
-<input type="button" id="m36" value="36" onclick="a1(36)"> 
-<input type="button" id="m48" value="48" onclick="a1(48)"> 
-<input type="button" id="m60" value="60" onclick="a1(60)"> 
+<input type="button" id="m36" value="36" onclick="a1(this.value)"> 
+<input type="button" id="m48" value="48" onclick="a1(this.value)"> 
+<input type="button" id="m60" value="60" onclick="a1(this.value)">
 <input type="text" id="output1">
 <br>
 <input type="text" id="input2"onkeyup="enterkey2(36)">
-<input type="button" id="m36" value="36" onclick="a2(36)"> 
-<input type="button" id="m48" value="48" onclick="a2(48)"> 
-<input type="button" id="m60" value="60" onclick="a2(60)"> 
+<input type="button" id="m36" value="36" onclick="a2(this.value)"> 
+<input type="button" id="m48" value="48" onclick="a2(this.value)"> 
+<input type="button" id="m60" value="60" onclick="a2(this.value)"> 
 <input type="text" id="output2">
 
 <br>
 <input type="text" id="input3"onkeyup="enterkey3(36)">
-<input type="button" id="m36" value="36" onclick="a3(36)"> 
-<input type="button" id="m48" value="48" onclick="a3(48)"> 
-<input type="button" id="m60" value="60" onclick="a3(60)"> 
+<input type="button" id="m36" value="36" onclick="a3(this.value)"> 
+<input type="button" id="m48" value="48" onclick="a3(this.value)"> 
+<input type="button" id="m60" value="60" onclick="a3(this.value)"> 
 <input type="text" id="output3">
 
 <br><br>
 총 렌탈사용 요금
-<input type="text" id="tot" onclick="tot()" >
+<input type="text" id="tot" >
+
+<br><br>
+블루등급 신용카드를 사용하는 TPS고객 가능 총합계 금액 <br>
+<input type="text" id="tot2" ><br><br>
+블루등급 신용카드를 사용하는 TPS고객 가능 월한도 금액 (36개월) <br>
+<input type="text" id="tot3" ><br>
 
 <script>
 var m1 = 0;
@@ -64,6 +70,12 @@ function a1(m) {
 	var tot = +mm1 + +mm2 + +mm3 + +now;
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+	tot2 = 7000000 -  tot
+	document.getElementById ("tot2").value = tot2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	tot3 = tot2 / 36
+	tot3 = Math.ceil(tot3)
+	document.getElementById ("tot3").value = tot3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
 
 
 
@@ -83,6 +95,12 @@ function a2(m) {
 	var tot = +mm1 + +mm2 + +mm3 + +now;
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+	tot2 = 7000000 -  tot
+	document.getElementById ("tot2").value = tot2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	tot3 = tot2 / 36
+	tot3 = Math.ceil(tot3)
+	document.getElementById ("tot3").value = tot3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
 
 
 }
@@ -99,6 +117,14 @@ function a3(m) {
 	var now = document.getElementById ("now").value;
 	var tot = +mm1 + +mm2 + +mm3 + +now;
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+	tot2 = 7000000 -  tot
+	document.getElementById ("tot2").value = tot2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	tot3 = tot2 / 36
+	tot3 = Math.ceil(tot3)
+	document.getElementById ("tot3").value = tot3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+
 
 }
 
@@ -117,6 +143,16 @@ function a3(m) {
 	var now = document.getElementById ("now").value;
 	var tot = +mm1 + +mm2 + +mm3 + +now;
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+	tot2 = 7000000 -  tot
+	document.getElementById ("tot2").value = tot2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	tot3 = tot2 / 36
+	tot3 = Math.ceil(tot3)
+	document.getElementById ("tot3").value = tot3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+	//var str = tot;
+//str = str.replace(/,/g, "");
+//var num = parseInt(str);
 
 		}
 
@@ -137,6 +173,13 @@ function enterkey2(m) {
 	var tot = +mm1 + +mm2 + +mm3 + +now;
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+	tot2 = 7000000 -  tot
+	document.getElementById ("tot2").value = tot2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	tot3 = tot2 / 36
+	tot3 = Math.ceil(tot3)
+	document.getElementById ("tot3").value = tot3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+
 		}
 
 }
@@ -156,21 +199,28 @@ function enterkey3(m) {
 	var tot = +mm1 + +mm2 + +mm3 + +now;
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+	tot2 = 7000000 -  tot
+	document.getElementById ("tot2").value = tot2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	tot3 = tot2 / 36
+	tot3 = Math.ceil(tot3)
+	document.getElementById ("tot3").value = tot3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
 		}
 
 }
 
 function reset() {
 
-	document.getElementById ("input1").value = 0
-	document.getElementById ("input2").value = 0
-	document.getElementById ("input3").value = 0
-	document.getElementById ("output1").value = 0
-	document.getElementById ("output2").value = 0
-	document.getElementById ("output3").value = 0
-	document.getElementById ("tot").value = 0
-	document.getElementById ("now").value = 0
-
+	document.getElementById ("input1").value = ""
+	document.getElementById ("input2").value = ""
+	document.getElementById ("input3").value = ""
+	document.getElementById ("output1").value = ""
+	document.getElementById ("output2").value = ""
+	document.getElementById ("output3").value = ""
+	document.getElementById ("tot").value = ""
+	document.getElementById ("now").value = ""
+	document.getElementById ("tot2").value = ""
+	document.getElementById ("tot3").value = ""
 
 }
 
