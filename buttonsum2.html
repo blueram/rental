@@ -46,15 +46,99 @@
 <input type="text" id="tot" >
 
 <br><br>
-블루등급 신용카드를 사용하는 TPS고객 가능 총합계 금액 <br>
-<input type="text" id="tot2" ><br><br>
+<!-- 블루등급 신용카드를 사용하는 TPS고객 가능 총합계 금액 <br>
+<input type="text" id="tot21" ><br><br>
 블루등급 신용카드를 사용하는 TPS고객 가능 월한도 금액 (36개월) <br>
-<input type="text" id="tot3" ><br>
+<input type="text" id="tot3" ><br> -->
+
+
+  
+<style type="text/css">
+	.tg  {border-collapse:collapse;border-spacing:0;}
+	.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+	  overflow:hidden;padding:10px 5px;word-break:normal;}
+	.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+	  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+	.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+	.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+	</style>
+	<table class="tg">
+	<thead>
+	  <tr>
+		<th class="tg-0pky" rowspan="2">기준금액</th>
+		<th class="tg-c3ow" colspan="2">TPS 결합고객</th>
+		<th class="tg-c3ow" colspan="2">렌탈단독고객</th>
+	  </tr>
+	  <tr>
+		<td class="tg-0pky">신용카드</td>
+		<td class="tg-0pky">자동이체</td>
+		<td class="tg-0pky">신용카드</td>
+		<td class="tg-0pky">자동이체</td>
+	  </tr>
+	</thead>
+	<tbody>
+	  <tr>
+		<td class="tg-c3ow" rowspan="2">블루(1~3등급)</td>
+		<td class="tg-0pky"><output id="stps1" ></output></td>
+		<td class="tg-0pky"><output id="stps2" ></output></td>
+		<td class="tg-0pky"><output id="stps3" ></output></td>
+		<td class="tg-0pky"><output id="stps4" ></output></td>
+	  </tr>
+	  <tr>
+		<td class="tg-0pky"><output id="stps5" ></output></td>
+		<td class="tg-0pky"><output id="stps6" ></output></td>
+		<td class="tg-0pky"><output id="stps7" ></output></td>
+		<td class="tg-0pky"><output id="stps8" ></output></td>
+	  </tr>
+	  <tr>
+		<td class="tg-0pky" rowspan="2">그린(4~5등급)</td>
+		<td class="tg-0pky"><output id="stps9" ></output></td>
+		<td class="tg-0pky"><output id="stps10" ></output></td>
+		<td class="tg-0pky"><output id="stps11" ></output></td>
+		<td class="tg-0pky"><output id="stps12" ></output></td>
+	  </tr>
+	  <tr>
+		<td class="tg-0pky"><output id="stps13" ></output></td>
+		<td class="tg-0pky"><output id="stps14" ></output></td>
+		<td class="tg-0pky"><output id="stps15" ></output></td>
+		<td class="tg-0pky"><output id="stps16" ></output></td>
+	  </tr>
+	  <tr>
+		<td class="tg-0pky" rowspan="2">엘로우(6~7등급)</td>
+		<td class="tg-0pky"><output id="stps17" ></output></td>
+		<td class="tg-0pky"><output id="stps18" ></output></td>
+		<td class="tg-0pky"><output id="stps19" ></output></td>
+		<td class="tg-0pky"><output id="stps20" ></output></td>
+	  </tr>
+	  <tr>
+		<td class="tg-0pky"><output id="stps21" ></output></td>
+		<td class="tg-0pky"><output id="stps22" ></output></td>
+		<td class="tg-0pky"><output id="stps23" ></output></td>
+		<td class="tg-0pky"><output id="stps24" ></output></td>
+	  </tr>
+	</tbody>
+	</table>
+
 
 <script>
+	
 var m1 = 0;
 var m2 = 0;
 var m3 = 0;
+var tps1 = 7000000;
+var tps2 = 4000000;
+var tps3 = 3000000;
+var tps4 = 3600000;
+var tps5 = 3000000;
+var tps6 = 1800000;
+var ren1 = 6000000;
+var ren2 = 4000000;
+var ren3 = 3000000;
+var ren4 = 3600000;
+var ren5 = 3000000;
+var ren6 = 1800000;
+
+
 
 function a1(m) {
 	var month = m;
@@ -70,12 +154,95 @@ function a1(m) {
 	var tot = +mm1 + +mm2 + +mm3 + +now;
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
-	tot2 = 7000000 -  tot
-	document.getElementById ("tot2").value = tot2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
-	tot3 = tot2 / 36
-	tot3 = Math.ceil(tot3)
-	document.getElementById ("tot3").value = tot3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+// 입력값에도 콤마를 넣는 수식
+	document.getElementById ("input1").value = a1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	document.getElementById ("output1").value = mm1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+
+// 블루에 신용카드  1 , 5
+	 var stps5 = tps1 -  tot
+	document.getElementById ("stps5").value = stps5.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps1 = stps5 / 36
+	stps1 = Math.ceil(stps1)
+	document.getElementById ("stps1").value = stps1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 자동이체  2 , 6
+var stps6 = tps4 -  tot
+	document.getElementById ("stps6").value = stps6.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps2 = stps6 / 36
+	stps2 = Math.ceil(stps2)
+	document.getElementById ("stps2").value = stps2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 렌탈단독 신용카드  3 , 7
+var stps7 = ren1 -  tot
+	document.getElementById ("stps7").value = stps7.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps3 = stps7 / 36
+	stps3 = Math.ceil(stps3)
+	document.getElementById ("stps3").value = stps3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 렌탈단독 자동이체  4 , 8
+var stps8 = ren4 -  tot
+	document.getElementById ("stps8").value = stps8.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps4 = stps8 / 36
+	stps4 = Math.ceil(stps4)
+	document.getElementById ("stps4").value = stps4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 신용카드  9 , 13
+var stps13 = tps2 -  tot
+	document.getElementById ("stps13").value = stps13.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps9 = stps13 / 36
+	stps9 = Math.ceil(stps9)
+	document.getElementById ("stps9").value = stps9.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  10 , 14
+var stps14 = tps5 -  tot
+	document.getElementById ("stps14").value = stps14.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps10 = stps14 / 36
+	stps10 = Math.ceil(stps10)
+	document.getElementById ("stps10").value = stps10.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  11 , 15
+var stps15 = ren2 -  tot
+	document.getElementById ("stps15").value = stps15.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps11 = stps15 / 36
+	stps11 = Math.ceil(stps11)
+	document.getElementById ("stps11").value = stps11.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  12 , 16
+var stps16 = ren5 -  tot
+	document.getElementById ("stps16").value = stps16.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps12 = stps16 / 36
+	stps12 = Math.ceil(stps12)
+	document.getElementById ("stps12").value = stps12.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+
+// 엘로우 신용카드  17 , 21
+var stps21 = tps3 -  tot
+	document.getElementById ("stps21").value = stps21.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps17 = stps21 / 36
+	stps17 = Math.ceil(stps17)
+	document.getElementById ("stps17").value = stps17.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 자동이체  18 , 22
+var stps22 = tps6 -  tot
+	document.getElementById ("stps22").value = stps22.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps18 = stps22 / 36
+	stps18 = Math.ceil(stps18)
+	document.getElementById ("stps18").value = stps18.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 렌탈단독 신용카드  19 , 23
+var stps23 = ren3 -  tot
+	document.getElementById ("stps23").value = stps23.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps19 = stps23 / 36
+	stps19 = Math.ceil(stps19)
+	document.getElementById ("stps19").value = stps19.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 렌탈단독 자동이체  20 , 24
+var stps24 = ren6 -  tot
+	document.getElementById ("stps24").value = stps24.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps20 = stps24 / 36
+	stps20 = Math.ceil(stps20)
+	document.getElementById ("stps20").value = stps20.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
 
 
@@ -95,11 +262,91 @@ function a2(m) {
 	var tot = +mm1 + +mm2 + +mm3 + +now;
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
-	tot2 = 7000000 -  tot
-	document.getElementById ("tot2").value = tot2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
-	tot3 = tot2 / 36
-	tot3 = Math.ceil(tot3)
-	document.getElementById ("tot3").value = tot3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 신용카드  1 , 5
+var stps5 = tps1 -  tot
+	document.getElementById ("stps5").value = stps5.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps1 = stps5 / 36
+	stps1 = Math.ceil(stps1)
+	document.getElementById ("stps1").value = stps1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 자동이체  2 , 6
+var stps6 = tps4 -  tot
+	document.getElementById ("stps6").value = stps6.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps2 = stps6 / 36
+	stps2 = Math.ceil(stps2)
+	document.getElementById ("stps2").value = stps2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 렌탈단독 신용카드  3 , 7
+var stps7 = ren1 -  tot
+	document.getElementById ("stps7").value = stps7.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps3 = stps7 / 36
+	stps3 = Math.ceil(stps3)
+	document.getElementById ("stps3").value = stps3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 렌탈단독 자동이체  4 , 8
+var stps8 = ren4 -  tot
+	document.getElementById ("stps8").value = stps8.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps4 = stps8 / 36
+	stps4 = Math.ceil(stps4)
+	document.getElementById ("stps4").value = stps4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 신용카드  9 , 13
+var stps13 = tps2 -  tot
+	document.getElementById ("stps13").value = stps13.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps9 = stps13 / 36
+	stps9 = Math.ceil(stps9)
+	document.getElementById ("stps9").value = stps9.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  10 , 14
+var stps14 = tps5 -  tot
+	document.getElementById ("stps14").value = stps14.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps10 = stps14 / 36
+	stps10 = Math.ceil(stps10)
+	document.getElementById ("stps10").value = stps10.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  11 , 15
+var stps15 = ren2 -  tot
+	document.getElementById ("stps15").value = stps15.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps11 = stps15 / 36
+	stps11 = Math.ceil(stps11)
+	document.getElementById ("stps11").value = stps11.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  12 , 16
+var stps16 = ren5 -  tot
+	document.getElementById ("stps16").value = stps16.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps12 = stps16 / 36
+	stps12 = Math.ceil(stps12)
+	document.getElementById ("stps12").value = stps12.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+
+// 엘로우 신용카드  17 , 21
+var stps21 = tps3 -  tot
+	document.getElementById ("stps21").value = stps21.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps17 = stps21 / 36
+	stps17 = Math.ceil(stps17)
+	document.getElementById ("stps17").value = stps17.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 자동이체  18 , 22
+var stps22 = tps6 -  tot
+	document.getElementById ("stps22").value = stps22.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps18 = stps22 / 36
+	stps18 = Math.ceil(stps18)
+	document.getElementById ("stps18").value = stps18.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 렌탈단독 신용카드  19 , 23
+var stps23 = ren3 -  tot
+	document.getElementById ("stps23").value = stps23.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps19 = stps23 / 36
+	stps19 = Math.ceil(stps19)
+	document.getElementById ("stps19").value = stps19.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 렌탈단독 자동이체  20 , 24
+var stps24 = ren6 -  tot
+	document.getElementById ("stps24").value = stps24.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps20 = stps24 / 36
+	stps20 = Math.ceil(stps20)
+	document.getElementById ("stps20").value = stps20.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
 
 
@@ -118,12 +365,91 @@ function a3(m) {
 	var tot = +mm1 + +mm2 + +mm3 + +now;
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
-	tot2 = 7000000 -  tot
-	document.getElementById ("tot2").value = tot2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
-	tot3 = tot2 / 36
-	tot3 = Math.ceil(tot3)
-	document.getElementById ("tot3").value = tot3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+// 블루에 신용카드  1 , 5
+var stps5 = tps1 -  tot
+	document.getElementById ("stps5").value = stps5.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps1 = stps5 / 36
+	stps1 = Math.ceil(stps1)
+	document.getElementById ("stps1").value = stps1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 자동이체  2 , 6
+var stps6 = tps4 -  tot
+	document.getElementById ("stps6").value = stps6.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps2 = stps6 / 36
+	stps2 = Math.ceil(stps2)
+	document.getElementById ("stps2").value = stps2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 렌탈단독 신용카드  3 , 7
+var stps7 = ren1 -  tot
+	document.getElementById ("stps7").value = stps7.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps3 = stps7 / 36
+	stps3 = Math.ceil(stps3)
+	document.getElementById ("stps3").value = stps3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 렌탈단독 자동이체  4 , 8
+var stps8 = ren4 -  tot
+	document.getElementById ("stps8").value = stps8.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps4 = stps8 / 36
+	stps4 = Math.ceil(stps4)
+	document.getElementById ("stps4").value = stps4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 신용카드  9 , 13
+var stps13 = tps2 -  tot
+	document.getElementById ("stps13").value = stps13.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps9 = stps13 / 36
+	stps9 = Math.ceil(stps9)
+	document.getElementById ("stps9").value = stps9.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  10 , 14
+var stps14 = tps5 -  tot
+	document.getElementById ("stps14").value = stps14.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps10 = stps14 / 36
+	stps10 = Math.ceil(stps10)
+	document.getElementById ("stps10").value = stps10.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  11 , 15
+var stps15 = ren2 -  tot
+	document.getElementById ("stps15").value = stps15.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps11 = stps15 / 36
+	stps11 = Math.ceil(stps11)
+	document.getElementById ("stps11").value = stps11.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  12 , 16
+var stps16 = ren5 -  tot
+	document.getElementById ("stps16").value = stps16.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps12 = stps16 / 36
+	stps12 = Math.ceil(stps12)
+	document.getElementById ("stps12").value = stps12.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+
+// 엘로우 신용카드  17 , 21
+var stps21 = tps3 -  tot
+	document.getElementById ("stps21").value = stps21.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps17 = stps21 / 36
+	stps17 = Math.ceil(stps17)
+	document.getElementById ("stps17").value = stps17.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 자동이체  18 , 22
+var stps22 = tps6 -  tot
+	document.getElementById ("stps22").value = stps22.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps18 = stps22 / 36
+	stps18 = Math.ceil(stps18)
+	document.getElementById ("stps18").value = stps18.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 렌탈단독 신용카드  19 , 23
+var stps23 = ren3 -  tot
+	document.getElementById ("stps23").value = stps23.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps19 = stps23 / 36
+	stps19 = Math.ceil(stps19)
+	document.getElementById ("stps19").value = stps19.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 렌탈단독 자동이체  20 , 24
+var stps24 = ren6 -  tot
+	document.getElementById ("stps24").value = stps24.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps20 = stps24 / 36
+	stps20 = Math.ceil(stps20)
+	document.getElementById ("stps20").value = stps20.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
 
 }
@@ -144,15 +470,92 @@ function a3(m) {
 	var tot = +mm1 + +mm2 + +mm3 + +now;
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
-	tot2 = 7000000 -  tot
-	document.getElementById ("tot2").value = tot2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
-	tot3 = tot2 / 36
-	tot3 = Math.ceil(tot3)
-	document.getElementById ("tot3").value = tot3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	
+// 블루에 신용카드  1 , 5
+var stps5 = tps1 -  tot
+	document.getElementById ("stps5").value = stps5.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps1 = stps5 / 36
+	stps1 = Math.ceil(stps1)
+	document.getElementById ("stps1").value = stps1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
-	//var str = tot;
-//str = str.replace(/,/g, "");
-//var num = parseInt(str);
+// 블루에 자동이체  2 , 6
+var stps6 = tps4 -  tot
+	document.getElementById ("stps6").value = stps6.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps2 = stps6 / 36
+	stps2 = Math.ceil(stps2)
+	document.getElementById ("stps2").value = stps2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 렌탈단독 신용카드  3 , 7
+var stps7 = ren1 -  tot
+	document.getElementById ("stps7").value = stps7.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps3 = stps7 / 36
+	stps3 = Math.ceil(stps3)
+	document.getElementById ("stps3").value = stps3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 렌탈단독 자동이체  4 , 8
+var stps8 = ren4 -  tot
+	document.getElementById ("stps8").value = stps8.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps4 = stps8 / 36
+	stps4 = Math.ceil(stps4)
+	document.getElementById ("stps4").value = stps4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 신용카드  9 , 13
+var stps13 = tps2 -  tot
+	document.getElementById ("stps13").value = stps13.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps9 = stps13 / 36
+	stps9 = Math.ceil(stps9)
+	document.getElementById ("stps9").value = stps9.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  10 , 14
+var stps14 = tps5 -  tot
+	document.getElementById ("stps14").value = stps14.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps10 = stps14 / 36
+	stps10 = Math.ceil(stps10)
+	document.getElementById ("stps10").value = stps10.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  11 , 15
+var stps15 = ren2 -  tot
+	document.getElementById ("stps15").value = stps15.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps11 = stps15 / 36
+	stps11 = Math.ceil(stps11)
+	document.getElementById ("stps11").value = stps11.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  12 , 16
+var stps16 = ren5 -  tot
+	document.getElementById ("stps16").value = stps16.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps12 = stps16 / 36
+	stps12 = Math.ceil(stps12)
+	document.getElementById ("stps12").value = stps12.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+
+// 엘로우 신용카드  17 , 21
+var stps21 = tps3 -  tot
+	document.getElementById ("stps21").value = stps21.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps17 = stps21 / 36
+	stps17 = Math.ceil(stps17)
+	document.getElementById ("stps17").value = stps17.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 자동이체  18 , 22
+var stps22 = tps6 -  tot
+	document.getElementById ("stps22").value = stps22.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps18 = stps22 / 36
+	stps18 = Math.ceil(stps18)
+	document.getElementById ("stps18").value = stps18.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 렌탈단독 신용카드  19 , 23
+var stps23 = ren3 -  tot
+	document.getElementById ("stps23").value = stps23.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps19 = stps23 / 36
+	stps19 = Math.ceil(stps19)
+	document.getElementById ("stps19").value = stps19.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 렌탈단독 자동이체  20 , 24
+var stps24 = ren6 -  tot
+	document.getElementById ("stps24").value = stps24.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps20 = stps24 / 36
+	stps20 = Math.ceil(stps20)
+	document.getElementById ("stps20").value = stps20.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
 
 		}
 
@@ -173,11 +576,91 @@ function enterkey2(m) {
 	var tot = +mm1 + +mm2 + +mm3 + +now;
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
-	tot2 = 7000000 -  tot
-	document.getElementById ("tot2").value = tot2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
-	tot3 = tot2 / 36
-	tot3 = Math.ceil(tot3)
-	document.getElementById ("tot3").value = tot3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	
+// 블루에 신용카드  1 , 5
+var stps5 = tps1 -  tot
+	document.getElementById ("stps5").value = stps5.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps1 = stps5 / 36
+	stps1 = Math.ceil(stps1)
+	document.getElementById ("stps1").value = stps1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 자동이체  2 , 6
+var stps6 = tps4 -  tot
+	document.getElementById ("stps6").value = stps6.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps2 = stps6 / 36
+	stps2 = Math.ceil(stps2)
+	document.getElementById ("stps2").value = stps2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 렌탈단독 신용카드  3 , 7
+var stps7 = ren1 -  tot
+	document.getElementById ("stps7").value = stps7.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps3 = stps7 / 36
+	stps3 = Math.ceil(stps3)
+	document.getElementById ("stps3").value = stps3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 렌탈단독 자동이체  4 , 8
+var stps8 = ren4 -  tot
+	document.getElementById ("stps8").value = stps8.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps4 = stps8 / 36
+	stps4 = Math.ceil(stps4)
+	document.getElementById ("stps4").value = stps4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 신용카드  9 , 13
+var stps13 = tps2 -  tot
+	document.getElementById ("stps13").value = stps13.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps9 = stps13 / 36
+	stps9 = Math.ceil(stps9)
+	document.getElementById ("stps9").value = stps9.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  10 , 14
+var stps14 = tps5 -  tot
+	document.getElementById ("stps14").value = stps14.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps10 = stps14 / 36
+	stps10 = Math.ceil(stps10)
+	document.getElementById ("stps10").value = stps10.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  11 , 15
+var stps15 = ren2 -  tot
+	document.getElementById ("stps15").value = stps15.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps11 = stps15 / 36
+	stps11 = Math.ceil(stps11)
+	document.getElementById ("stps11").value = stps11.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  12 , 16
+var stps16 = ren5 -  tot
+	document.getElementById ("stps16").value = stps16.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps12 = stps16 / 36
+	stps12 = Math.ceil(stps12)
+	document.getElementById ("stps12").value = stps12.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+
+// 엘로우 신용카드  17 , 21
+var stps21 = tps3 -  tot
+	document.getElementById ("stps21").value = stps21.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps17 = stps21 / 36
+	stps17 = Math.ceil(stps17)
+	document.getElementById ("stps17").value = stps17.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 자동이체  18 , 22
+var stps22 = tps6 -  tot
+	document.getElementById ("stps22").value = stps22.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps18 = stps22 / 36
+	stps18 = Math.ceil(stps18)
+	document.getElementById ("stps18").value = stps18.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 렌탈단독 신용카드  19 , 23
+var stps23 = ren3 -  tot
+	document.getElementById ("stps23").value = stps23.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps19 = stps23 / 36
+	stps19 = Math.ceil(stps19)
+	document.getElementById ("stps19").value = stps19.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 렌탈단독 자동이체  20 , 24
+var stps24 = ren6 -  tot
+	document.getElementById ("stps24").value = stps24.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps20 = stps24 / 36
+	stps20 = Math.ceil(stps20)
+	document.getElementById ("stps20").value = stps20.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
 
 		}
@@ -199,11 +682,91 @@ function enterkey3(m) {
 	var tot = +mm1 + +mm2 + +mm3 + +now;
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
-	tot2 = 7000000 -  tot
-	document.getElementById ("tot2").value = tot2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
-	tot3 = tot2 / 36
-	tot3 = Math.ceil(tot3)
-	document.getElementById ("tot3").value = tot3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	
+// 블루에 신용카드  1 , 5
+var stps5 = tps1 -  tot
+	document.getElementById ("stps5").value = stps5.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps1 = stps5 / 36
+	stps1 = Math.ceil(stps1)
+	document.getElementById ("stps1").value = stps1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 자동이체  2 , 6
+var stps6 = tps4 -  tot
+	document.getElementById ("stps6").value = stps6.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps2 = stps6 / 36
+	stps2 = Math.ceil(stps2)
+	document.getElementById ("stps2").value = stps2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 렌탈단독 신용카드  3 , 7
+var stps7 = ren1 -  tot
+	document.getElementById ("stps7").value = stps7.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps3 = stps7 / 36
+	stps3 = Math.ceil(stps3)
+	document.getElementById ("stps3").value = stps3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 블루에 렌탈단독 자동이체  4 , 8
+var stps8 = ren4 -  tot
+	document.getElementById ("stps8").value = stps8.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps4 = stps8 / 36
+	stps4 = Math.ceil(stps4)
+	document.getElementById ("stps4").value = stps4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 신용카드  9 , 13
+var stps13 = tps2 -  tot
+	document.getElementById ("stps13").value = stps13.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps9 = stps13 / 36
+	stps9 = Math.ceil(stps9)
+	document.getElementById ("stps9").value = stps9.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  10 , 14
+var stps14 = tps5 -  tot
+	document.getElementById ("stps14").value = stps14.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps10 = stps14 / 36
+	stps10 = Math.ceil(stps10)
+	document.getElementById ("stps10").value = stps10.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  11 , 15
+var stps15 = ren2 -  tot
+	document.getElementById ("stps15").value = stps15.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps11 = stps15 / 36
+	stps11 = Math.ceil(stps11)
+	document.getElementById ("stps11").value = stps11.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 그린 자동이체  12 , 16
+var stps16 = ren5 -  tot
+	document.getElementById ("stps16").value = stps16.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps12 = stps16 / 36
+	stps12 = Math.ceil(stps12)
+	document.getElementById ("stps12").value = stps12.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+
+// 엘로우 신용카드  17 , 21
+var stps21 = tps3 -  tot
+	document.getElementById ("stps21").value = stps21.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps17 = stps21 / 36
+	stps17 = Math.ceil(stps17)
+	document.getElementById ("stps17").value = stps17.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 자동이체  18 , 22
+var stps22 = tps6 -  tot
+	document.getElementById ("stps22").value = stps22.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps18 = stps22 / 36
+	stps18 = Math.ceil(stps18)
+	document.getElementById ("stps18").value = stps18.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 렌탈단독 신용카드  19 , 23
+var stps23 = ren3 -  tot
+	document.getElementById ("stps23").value = stps23.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps19 = stps23 / 36
+	stps19 = Math.ceil(stps19)
+	document.getElementById ("stps19").value = stps19.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+// 엘로우 렌탈단독 자동이체  20 , 24
+var stps24 = ren6 -  tot
+	document.getElementById ("stps24").value = stps24.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	var stps20 = stps24 / 36
+	stps20 = Math.ceil(stps20)
+	document.getElementById ("stps20").value = stps20.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
 		}
 
@@ -221,7 +784,7 @@ function reset() {
 	document.getElementById ("now").value = ""
 	document.getElementById ("tot2").value = ""
 	document.getElementById ("tot3").value = ""
-
+  
 }
 
 
