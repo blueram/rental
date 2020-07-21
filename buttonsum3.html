@@ -4,11 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>웹 브라우저 창에 표시하기</title>
+	<title>렌탈계산기 v.02</title>
+	<link rel="stylesheet" href="css/buttonsum3.css">
 
-	<style>
-
-	</style>
 </head>
 
 <body>	
@@ -16,7 +14,7 @@
 
 
 현재 사용중인 금액
-<input type="text" id="now">
+<input type="text" id="now" onkeyup="enterkey1(36)">
 <br><br>
 
 신규 추가 금액 
@@ -66,8 +64,8 @@
 	<thead>
 	  <tr>
 		<th class="tg-0pky" rowspan="2">기준금액</th>
-		<th class="tg-c3ow" colspan="2">TPS 결합고객</th>
-		<th class="tg-c3ow" colspan="2">렌탈단독고객</th>
+		<th class="tg-0pky" colspan="2">TPS 결합고객</th>
+		<th class="tg-0pky" colspan="2">렌탈단독고객</th>
 	  </tr>
 	  <tr>
 		<td class="tg-0pky">신용카드</td>
@@ -78,7 +76,7 @@
 	</thead>
 	<tbody>
 	  <tr>
-		<td class="tg-c3ow" rowspan="2">블루(1~3등급)</td>
+		<td class="tg-0pky" rowspan="2">블루(1~3등급)</td>
 		<td class="tg-0pky"><output id="stps1" ></output></td>
 		<td class="tg-0pky"><output id="stps2" ></output></td>
 		<td class="tg-0pky"><output id="stps3" ></output></td>
@@ -453,7 +451,7 @@ var stps24 = ren6 -  tot
 
 
 }
-
+// 엔터키 누르면 실행되는 이벤트
 
 	function enterkey1(m) {
         if (window.event.keyCode == 13){
