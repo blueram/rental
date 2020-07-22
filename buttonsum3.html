@@ -10,30 +10,42 @@
 </head>
 
 <body>	
+
 <button id="reset" type="button" onclick="reset()">초기화</button><br><br>
 
+<fieldset style="width : 370px">
+	<legend> 결제방법 </legend>
+	<p>고객의 결제 방법을 선택하세요.</p>
+	<label><input type="radio" name="subject" value="speaking">신용카드</label>
+	<label><input type="radio" name="subject" value="grammar">자동이체</label>
+	    
+</fieldset>
 
-현재 사용중인 금액
-<input type="text" id="now" onkeyup="enterkey1(36)">
+<br>
+현재 사용중인 총금액을 입력하세요 (신규는 빈칸으로 두세요) <br>
+<input type="text" id="now" onkeyup="enterkey1(36)">원
 <br><br>
 
-신규 추가 금액 
+<설명> 신규 추가 금액 (월요금으로 입력하세요) / 
+금액 입력후 엔터를 치시면 자동 36개월로 계산됩니다. 
+<br>
+총 신규 3개까지 아래 입력 가능합니다.<br>
 <br>
 
-<input type="text" id="input1" onkeyup="enterkey1(36)">
+1. <input type="text" id="input1" onkeyup="enterkey1(36)">원
 <input type="button" id="m36" value="36" onclick="a1(this.value)"> 
 <input type="button" id="m48" value="48" onclick="a1(this.value)"> 
 <input type="button" id="m60" value="60" onclick="a1(this.value)">
 <input type="text" id="output1">
 <br>
-<input type="text" id="input2"onkeyup="enterkey2(36)">
+2. <input type="text" id="input2"onkeyup="enterkey2(36)">원
 <input type="button" id="m36" value="36" onclick="a2(this.value)"> 
 <input type="button" id="m48" value="48" onclick="a2(this.value)"> 
 <input type="button" id="m60" value="60" onclick="a2(this.value)"> 
 <input type="text" id="output2">
 
 <br>
-<input type="text" id="input3"onkeyup="enterkey3(36)">
+3. <input type="text" id="input3"onkeyup="enterkey3(36)">원
 <input type="button" id="m36" value="36" onclick="a3(this.value)"> 
 <input type="button" id="m48" value="48" onclick="a3(this.value)"> 
 <input type="button" id="m60" value="60" onclick="a3(this.value)"> 
@@ -51,15 +63,18 @@
 
 
   
-<style type="text/css">
+
+	<style type="text/css">
 	.tg  {border-collapse:collapse;border-spacing:0;}
 	.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
 	  overflow:hidden;padding:10px 5px;word-break:normal;}
 	.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
 	  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
 	.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
-	.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+	.tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top}
 	</style>
+
+
 	<table class="tg">
 	<thead>
 	  <tr>
@@ -163,6 +178,14 @@ function a1(m) {
 	var stps1 = stps5 / 36
 	stps1 = Math.ceil(stps1)
 	document.getElementById ("stps1").value = stps1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+    if (stps1 < 0) {
+		document.querySelector('#stps1').style.color = 'red';
+		document.querySelector('#stps5').style.color = 'red';
+		} else if (stps1 >= 0) {
+		document.querySelector('#stps1').style.color = 'blue';
+		document.querySelector('#stps5').style.color = 'blue';
+		}
+		;
 
 // 블루에 자동이체  2 , 6
 var stps6 = tps4 -  tot
@@ -170,6 +193,15 @@ var stps6 = tps4 -  tot
 	var stps2 = stps6 / 36
 	stps2 = Math.ceil(stps2)
 	document.getElementById ("stps2").value = stps2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps2 < 0) {
+		document.querySelector('#stps2').style.color = 'red';
+		document.querySelector('#stps6').style.color = 'red';
+		} else if (stps2 >= 0) {
+		document.querySelector('#stps2').style.color = 'blue';
+		document.querySelector('#stps6').style.color = 'blue';
+		}
+		;
+
 
 // 블루에 렌탈단독 신용카드  3 , 7
 var stps7 = ren1 -  tot
@@ -177,6 +209,15 @@ var stps7 = ren1 -  tot
 	var stps3 = stps7 / 36
 	stps3 = Math.ceil(stps3)
 	document.getElementById ("stps3").value = stps3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps3 < 0) {
+		document.querySelector('#stps3').style.color = 'red';
+		document.querySelector('#stps7').style.color = 'red';
+		} else if (stps3 >= 0) {
+		document.querySelector('#stps3').style.color = 'blue';
+		document.querySelector('#stps7').style.color = 'blue';
+		}
+		;
+
 
 // 블루에 렌탈단독 자동이체  4 , 8
 var stps8 = ren4 -  tot
@@ -184,6 +225,17 @@ var stps8 = ren4 -  tot
 	var stps4 = stps8 / 36
 	stps4 = Math.ceil(stps4)
 	document.getElementById ("stps4").value = stps4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	
+	if (stps4 < 0) {
+		document.querySelector('#stps4').style.color = 'red';
+		document.querySelector('#stps8').style.color = 'red';
+		} else if (stps4 >= 0) {
+		document.querySelector('#stps4').style.color = 'blue';
+		document.querySelector('#stps8').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 신용카드  9 , 13
 var stps13 = tps2 -  tot
@@ -191,6 +243,16 @@ var stps13 = tps2 -  tot
 	var stps9 = stps13 / 36
 	stps9 = Math.ceil(stps9)
 	document.getElementById ("stps9").value = stps9.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps9 < 0) {
+		document.querySelector('#stps9').style.color = 'red';
+		document.querySelector('#stps13').style.color = 'red';
+		} else if (stps9 >= 0) {
+		document.querySelector('#stps9').style.color = 'blue';
+		document.querySelector('#stps13').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 자동이체  10 , 14
 var stps14 = tps5 -  tot
@@ -198,6 +260,16 @@ var stps14 = tps5 -  tot
 	var stps10 = stps14 / 36
 	stps10 = Math.ceil(stps10)
 	document.getElementById ("stps10").value = stps10.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps10 < 0) {
+		document.querySelector('#stps10').style.color = 'red';
+		document.querySelector('#stps14').style.color = 'red';
+		} else if (stps10 >= 0) {
+		document.querySelector('#stps10').style.color = 'blue';
+		document.querySelector('#stps14').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 자동이체  11 , 15
 var stps15 = ren2 -  tot
@@ -205,6 +277,15 @@ var stps15 = ren2 -  tot
 	var stps11 = stps15 / 36
 	stps11 = Math.ceil(stps11)
 	document.getElementById ("stps11").value = stps11.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps11 < 0) {
+		document.querySelector('#stps11').style.color = 'red';
+		document.querySelector('#stps15').style.color = 'red';
+		} else if (stps11 >= 0) {
+		document.querySelector('#stps11').style.color = 'blue';
+		document.querySelector('#stps15').style.color = 'blue';
+		}
+		;
+
 
 // 그린 자동이체  12 , 16
 var stps16 = ren5 -  tot
@@ -212,6 +293,15 @@ var stps16 = ren5 -  tot
 	var stps12 = stps16 / 36
 	stps12 = Math.ceil(stps12)
 	document.getElementById ("stps12").value = stps12.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps12 < 0) {
+		document.querySelector('#stps12').style.color = 'red';
+		document.querySelector('#stps16').style.color = 'red';
+		} else if (stps12 >= 0) {
+		document.querySelector('#stps12').style.color = 'blue';
+		document.querySelector('#stps16').style.color = 'blue';
+		}
+		;
+
 
 
 // 엘로우 신용카드  17 , 21
@@ -220,6 +310,14 @@ var stps21 = tps3 -  tot
 	var stps17 = stps21 / 36
 	stps17 = Math.ceil(stps17)
 	document.getElementById ("stps17").value = stps17.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps17 < 0) {
+		document.querySelector('#stps17').style.color = 'red';
+		document.querySelector('#stps21').style.color = 'red';
+		} else if (stps17 >= 0) {
+		document.querySelector('#stps17').style.color = 'blue';
+		document.querySelector('#stps21').style.color = 'blue';
+		}
+		;
 
 // 엘로우 자동이체  18 , 22
 var stps22 = tps6 -  tot
@@ -227,6 +325,14 @@ var stps22 = tps6 -  tot
 	var stps18 = stps22 / 36
 	stps18 = Math.ceil(stps18)
 	document.getElementById ("stps18").value = stps18.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps18 < 0) {
+		document.querySelector('#stps18').style.color = 'red';
+		document.querySelector('#stps22').style.color = 'red';
+		} else if (stps18 >= 0) {
+		document.querySelector('#stps18').style.color = 'blue';
+		document.querySelector('#stps22').style.color = 'blue';
+		}
+		;
 
 // 엘로우 렌탈단독 신용카드  19 , 23
 var stps23 = ren3 -  tot
@@ -234,6 +340,14 @@ var stps23 = ren3 -  tot
 	var stps19 = stps23 / 36
 	stps19 = Math.ceil(stps19)
 	document.getElementById ("stps19").value = stps19.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps19 < 0) {
+		document.querySelector('#stps19').style.color = 'red';
+		document.querySelector('#stps23').style.color = 'red';
+		} else if (stps19 >= 0) {
+		document.querySelector('#stps19').style.color = 'blue';
+		document.querySelector('#stps23').style.color = 'blue';
+		}
+		;
 
 // 엘로우 렌탈단독 자동이체  20 , 24
 var stps24 = ren6 -  tot
@@ -242,6 +356,13 @@ var stps24 = ren6 -  tot
 	stps20 = Math.ceil(stps20)
 	document.getElementById ("stps20").value = stps20.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+	if (stps20 < 0) {
+		document.querySelector('#stps20').style.color = 'red';
+		document.querySelector('#stps24').style.color = 'red';
+		} else if (stps20 >= 0) {
+		document.querySelector('#stps20').style.color = 'blue';
+		document.querySelector('#stps24').style.color = 'blue';
+		};
 
 
 }
@@ -267,6 +388,14 @@ var stps5 = tps1 -  tot
 	var stps1 = stps5 / 36
 	stps1 = Math.ceil(stps1)
 	document.getElementById ("stps1").value = stps1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+    if (stps1 < 0) {
+		document.querySelector('#stps1').style.color = 'red';
+		document.querySelector('#stps5').style.color = 'red';
+		} else if (stps1 >= 0) {
+		document.querySelector('#stps1').style.color = 'blue';
+		document.querySelector('#stps5').style.color = 'blue';
+		}
+		;
 
 // 블루에 자동이체  2 , 6
 var stps6 = tps4 -  tot
@@ -274,6 +403,15 @@ var stps6 = tps4 -  tot
 	var stps2 = stps6 / 36
 	stps2 = Math.ceil(stps2)
 	document.getElementById ("stps2").value = stps2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps2 < 0) {
+		document.querySelector('#stps2').style.color = 'red';
+		document.querySelector('#stps6').style.color = 'red';
+		} else if (stps2 >= 0) {
+		document.querySelector('#stps2').style.color = 'blue';
+		document.querySelector('#stps6').style.color = 'blue';
+		}
+		;
+
 
 // 블루에 렌탈단독 신용카드  3 , 7
 var stps7 = ren1 -  tot
@@ -281,6 +419,15 @@ var stps7 = ren1 -  tot
 	var stps3 = stps7 / 36
 	stps3 = Math.ceil(stps3)
 	document.getElementById ("stps3").value = stps3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps3 < 0) {
+		document.querySelector('#stps3').style.color = 'red';
+		document.querySelector('#stps7').style.color = 'red';
+		} else if (stps3 >= 0) {
+		document.querySelector('#stps3').style.color = 'blue';
+		document.querySelector('#stps7').style.color = 'blue';
+		}
+		;
+
 
 // 블루에 렌탈단독 자동이체  4 , 8
 var stps8 = ren4 -  tot
@@ -288,6 +435,17 @@ var stps8 = ren4 -  tot
 	var stps4 = stps8 / 36
 	stps4 = Math.ceil(stps4)
 	document.getElementById ("stps4").value = stps4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	
+	if (stps4 < 0) {
+		document.querySelector('#stps4').style.color = 'red';
+		document.querySelector('#stps8').style.color = 'red';
+		} else if (stps4 >= 0) {
+		document.querySelector('#stps4').style.color = 'blue';
+		document.querySelector('#stps8').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 신용카드  9 , 13
 var stps13 = tps2 -  tot
@@ -295,6 +453,16 @@ var stps13 = tps2 -  tot
 	var stps9 = stps13 / 36
 	stps9 = Math.ceil(stps9)
 	document.getElementById ("stps9").value = stps9.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps9 < 0) {
+		document.querySelector('#stps9').style.color = 'red';
+		document.querySelector('#stps13').style.color = 'red';
+		} else if (stps9 >= 0) {
+		document.querySelector('#stps9').style.color = 'blue';
+		document.querySelector('#stps13').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 자동이체  10 , 14
 var stps14 = tps5 -  tot
@@ -302,6 +470,16 @@ var stps14 = tps5 -  tot
 	var stps10 = stps14 / 36
 	stps10 = Math.ceil(stps10)
 	document.getElementById ("stps10").value = stps10.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps10 < 0) {
+		document.querySelector('#stps10').style.color = 'red';
+		document.querySelector('#stps14').style.color = 'red';
+		} else if (stps10 >= 0) {
+		document.querySelector('#stps10').style.color = 'blue';
+		document.querySelector('#stps14').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 자동이체  11 , 15
 var stps15 = ren2 -  tot
@@ -309,6 +487,15 @@ var stps15 = ren2 -  tot
 	var stps11 = stps15 / 36
 	stps11 = Math.ceil(stps11)
 	document.getElementById ("stps11").value = stps11.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps11 < 0) {
+		document.querySelector('#stps11').style.color = 'red';
+		document.querySelector('#stps15').style.color = 'red';
+		} else if (stps11 >= 0) {
+		document.querySelector('#stps11').style.color = 'blue';
+		document.querySelector('#stps15').style.color = 'blue';
+		}
+		;
+
 
 // 그린 자동이체  12 , 16
 var stps16 = ren5 -  tot
@@ -316,6 +503,15 @@ var stps16 = ren5 -  tot
 	var stps12 = stps16 / 36
 	stps12 = Math.ceil(stps12)
 	document.getElementById ("stps12").value = stps12.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps12 < 0) {
+		document.querySelector('#stps12').style.color = 'red';
+		document.querySelector('#stps16').style.color = 'red';
+		} else if (stps12 >= 0) {
+		document.querySelector('#stps12').style.color = 'blue';
+		document.querySelector('#stps16').style.color = 'blue';
+		}
+		;
+
 
 
 // 엘로우 신용카드  17 , 21
@@ -324,6 +520,14 @@ var stps21 = tps3 -  tot
 	var stps17 = stps21 / 36
 	stps17 = Math.ceil(stps17)
 	document.getElementById ("stps17").value = stps17.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps17 < 0) {
+		document.querySelector('#stps17').style.color = 'red';
+		document.querySelector('#stps21').style.color = 'red';
+		} else if (stps17 >= 0) {
+		document.querySelector('#stps17').style.color = 'blue';
+		document.querySelector('#stps21').style.color = 'blue';
+		}
+		;
 
 // 엘로우 자동이체  18 , 22
 var stps22 = tps6 -  tot
@@ -331,6 +535,14 @@ var stps22 = tps6 -  tot
 	var stps18 = stps22 / 36
 	stps18 = Math.ceil(stps18)
 	document.getElementById ("stps18").value = stps18.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps18 < 0) {
+		document.querySelector('#stps18').style.color = 'red';
+		document.querySelector('#stps22').style.color = 'red';
+		} else if (stps18 >= 0) {
+		document.querySelector('#stps18').style.color = 'blue';
+		document.querySelector('#stps22').style.color = 'blue';
+		}
+		;
 
 // 엘로우 렌탈단독 신용카드  19 , 23
 var stps23 = ren3 -  tot
@@ -338,6 +550,14 @@ var stps23 = ren3 -  tot
 	var stps19 = stps23 / 36
 	stps19 = Math.ceil(stps19)
 	document.getElementById ("stps19").value = stps19.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps19 < 0) {
+		document.querySelector('#stps19').style.color = 'red';
+		document.querySelector('#stps23').style.color = 'red';
+		} else if (stps19 >= 0) {
+		document.querySelector('#stps19').style.color = 'blue';
+		document.querySelector('#stps23').style.color = 'blue';
+		}
+		;
 
 // 엘로우 렌탈단독 자동이체  20 , 24
 var stps24 = ren6 -  tot
@@ -346,6 +566,13 @@ var stps24 = ren6 -  tot
 	stps20 = Math.ceil(stps20)
 	document.getElementById ("stps20").value = stps20.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+	if (stps20 < 0) {
+		document.querySelector('#stps20').style.color = 'red';
+		document.querySelector('#stps24').style.color = 'red';
+		} else if (stps20 >= 0) {
+		document.querySelector('#stps20').style.color = 'blue';
+		document.querySelector('#stps24').style.color = 'blue';
+		};
 
 
 }
@@ -370,6 +597,14 @@ var stps5 = tps1 -  tot
 	var stps1 = stps5 / 36
 	stps1 = Math.ceil(stps1)
 	document.getElementById ("stps1").value = stps1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+    if (stps1 < 0) {
+		document.querySelector('#stps1').style.color = 'red';
+		document.querySelector('#stps5').style.color = 'red';
+		} else if (stps1 >= 0) {
+		document.querySelector('#stps1').style.color = 'blue';
+		document.querySelector('#stps5').style.color = 'blue';
+		}
+		;
 
 // 블루에 자동이체  2 , 6
 var stps6 = tps4 -  tot
@@ -377,6 +612,15 @@ var stps6 = tps4 -  tot
 	var stps2 = stps6 / 36
 	stps2 = Math.ceil(stps2)
 	document.getElementById ("stps2").value = stps2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps2 < 0) {
+		document.querySelector('#stps2').style.color = 'red';
+		document.querySelector('#stps6').style.color = 'red';
+		} else if (stps2 >= 0) {
+		document.querySelector('#stps2').style.color = 'blue';
+		document.querySelector('#stps6').style.color = 'blue';
+		}
+		;
+
 
 // 블루에 렌탈단독 신용카드  3 , 7
 var stps7 = ren1 -  tot
@@ -384,6 +628,15 @@ var stps7 = ren1 -  tot
 	var stps3 = stps7 / 36
 	stps3 = Math.ceil(stps3)
 	document.getElementById ("stps3").value = stps3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps3 < 0) {
+		document.querySelector('#stps3').style.color = 'red';
+		document.querySelector('#stps7').style.color = 'red';
+		} else if (stps3 >= 0) {
+		document.querySelector('#stps3').style.color = 'blue';
+		document.querySelector('#stps7').style.color = 'blue';
+		}
+		;
+
 
 // 블루에 렌탈단독 자동이체  4 , 8
 var stps8 = ren4 -  tot
@@ -391,6 +644,17 @@ var stps8 = ren4 -  tot
 	var stps4 = stps8 / 36
 	stps4 = Math.ceil(stps4)
 	document.getElementById ("stps4").value = stps4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	
+	if (stps4 < 0) {
+		document.querySelector('#stps4').style.color = 'red';
+		document.querySelector('#stps8').style.color = 'red';
+		} else if (stps4 >= 0) {
+		document.querySelector('#stps4').style.color = 'blue';
+		document.querySelector('#stps8').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 신용카드  9 , 13
 var stps13 = tps2 -  tot
@@ -398,6 +662,16 @@ var stps13 = tps2 -  tot
 	var stps9 = stps13 / 36
 	stps9 = Math.ceil(stps9)
 	document.getElementById ("stps9").value = stps9.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps9 < 0) {
+		document.querySelector('#stps9').style.color = 'red';
+		document.querySelector('#stps13').style.color = 'red';
+		} else if (stps9 >= 0) {
+		document.querySelector('#stps9').style.color = 'blue';
+		document.querySelector('#stps13').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 자동이체  10 , 14
 var stps14 = tps5 -  tot
@@ -405,6 +679,16 @@ var stps14 = tps5 -  tot
 	var stps10 = stps14 / 36
 	stps10 = Math.ceil(stps10)
 	document.getElementById ("stps10").value = stps10.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps10 < 0) {
+		document.querySelector('#stps10').style.color = 'red';
+		document.querySelector('#stps14').style.color = 'red';
+		} else if (stps10 >= 0) {
+		document.querySelector('#stps10').style.color = 'blue';
+		document.querySelector('#stps14').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 자동이체  11 , 15
 var stps15 = ren2 -  tot
@@ -412,6 +696,15 @@ var stps15 = ren2 -  tot
 	var stps11 = stps15 / 36
 	stps11 = Math.ceil(stps11)
 	document.getElementById ("stps11").value = stps11.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps11 < 0) {
+		document.querySelector('#stps11').style.color = 'red';
+		document.querySelector('#stps15').style.color = 'red';
+		} else if (stps11 >= 0) {
+		document.querySelector('#stps11').style.color = 'blue';
+		document.querySelector('#stps15').style.color = 'blue';
+		}
+		;
+
 
 // 그린 자동이체  12 , 16
 var stps16 = ren5 -  tot
@@ -419,6 +712,15 @@ var stps16 = ren5 -  tot
 	var stps12 = stps16 / 36
 	stps12 = Math.ceil(stps12)
 	document.getElementById ("stps12").value = stps12.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps12 < 0) {
+		document.querySelector('#stps12').style.color = 'red';
+		document.querySelector('#stps16').style.color = 'red';
+		} else if (stps12 >= 0) {
+		document.querySelector('#stps12').style.color = 'blue';
+		document.querySelector('#stps16').style.color = 'blue';
+		}
+		;
+
 
 
 // 엘로우 신용카드  17 , 21
@@ -427,6 +729,14 @@ var stps21 = tps3 -  tot
 	var stps17 = stps21 / 36
 	stps17 = Math.ceil(stps17)
 	document.getElementById ("stps17").value = stps17.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps17 < 0) {
+		document.querySelector('#stps17').style.color = 'red';
+		document.querySelector('#stps21').style.color = 'red';
+		} else if (stps17 >= 0) {
+		document.querySelector('#stps17').style.color = 'blue';
+		document.querySelector('#stps21').style.color = 'blue';
+		}
+		;
 
 // 엘로우 자동이체  18 , 22
 var stps22 = tps6 -  tot
@@ -434,6 +744,14 @@ var stps22 = tps6 -  tot
 	var stps18 = stps22 / 36
 	stps18 = Math.ceil(stps18)
 	document.getElementById ("stps18").value = stps18.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps18 < 0) {
+		document.querySelector('#stps18').style.color = 'red';
+		document.querySelector('#stps22').style.color = 'red';
+		} else if (stps18 >= 0) {
+		document.querySelector('#stps18').style.color = 'blue';
+		document.querySelector('#stps22').style.color = 'blue';
+		}
+		;
 
 // 엘로우 렌탈단독 신용카드  19 , 23
 var stps23 = ren3 -  tot
@@ -441,6 +759,14 @@ var stps23 = ren3 -  tot
 	var stps19 = stps23 / 36
 	stps19 = Math.ceil(stps19)
 	document.getElementById ("stps19").value = stps19.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps19 < 0) {
+		document.querySelector('#stps19').style.color = 'red';
+		document.querySelector('#stps23').style.color = 'red';
+		} else if (stps19 >= 0) {
+		document.querySelector('#stps19').style.color = 'blue';
+		document.querySelector('#stps23').style.color = 'blue';
+		}
+		;
 
 // 엘로우 렌탈단독 자동이체  20 , 24
 var stps24 = ren6 -  tot
@@ -448,6 +774,14 @@ var stps24 = ren6 -  tot
 	var stps20 = stps24 / 36
 	stps20 = Math.ceil(stps20)
 	document.getElementById ("stps20").value = stps20.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+
+	if (stps20 < 0) {
+		document.querySelector('#stps20').style.color = 'red';
+		document.querySelector('#stps24').style.color = 'red';
+		} else if (stps20 >= 0) {
+		document.querySelector('#stps20').style.color = 'blue';
+		document.querySelector('#stps24').style.color = 'blue';
+		};
 
 
 }
@@ -475,6 +809,14 @@ var stps5 = tps1 -  tot
 	var stps1 = stps5 / 36
 	stps1 = Math.ceil(stps1)
 	document.getElementById ("stps1").value = stps1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+    if (stps1 < 0) {
+		document.querySelector('#stps1').style.color = 'red';
+		document.querySelector('#stps5').style.color = 'red';
+		} else if (stps1 >= 0) {
+		document.querySelector('#stps1').style.color = 'blue';
+		document.querySelector('#stps5').style.color = 'blue';
+		}
+		;
 
 // 블루에 자동이체  2 , 6
 var stps6 = tps4 -  tot
@@ -482,6 +824,15 @@ var stps6 = tps4 -  tot
 	var stps2 = stps6 / 36
 	stps2 = Math.ceil(stps2)
 	document.getElementById ("stps2").value = stps2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps2 < 0) {
+		document.querySelector('#stps2').style.color = 'red';
+		document.querySelector('#stps6').style.color = 'red';
+		} else if (stps2 >= 0) {
+		document.querySelector('#stps2').style.color = 'blue';
+		document.querySelector('#stps6').style.color = 'blue';
+		}
+		;
+
 
 // 블루에 렌탈단독 신용카드  3 , 7
 var stps7 = ren1 -  tot
@@ -489,6 +840,15 @@ var stps7 = ren1 -  tot
 	var stps3 = stps7 / 36
 	stps3 = Math.ceil(stps3)
 	document.getElementById ("stps3").value = stps3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps3 < 0) {
+		document.querySelector('#stps3').style.color = 'red';
+		document.querySelector('#stps7').style.color = 'red';
+		} else if (stps3 >= 0) {
+		document.querySelector('#stps3').style.color = 'blue';
+		document.querySelector('#stps7').style.color = 'blue';
+		}
+		;
+
 
 // 블루에 렌탈단독 자동이체  4 , 8
 var stps8 = ren4 -  tot
@@ -496,6 +856,17 @@ var stps8 = ren4 -  tot
 	var stps4 = stps8 / 36
 	stps4 = Math.ceil(stps4)
 	document.getElementById ("stps4").value = stps4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	
+	if (stps4 < 0) {
+		document.querySelector('#stps4').style.color = 'red';
+		document.querySelector('#stps8').style.color = 'red';
+		} else if (stps4 >= 0) {
+		document.querySelector('#stps4').style.color = 'blue';
+		document.querySelector('#stps8').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 신용카드  9 , 13
 var stps13 = tps2 -  tot
@@ -503,6 +874,16 @@ var stps13 = tps2 -  tot
 	var stps9 = stps13 / 36
 	stps9 = Math.ceil(stps9)
 	document.getElementById ("stps9").value = stps9.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps9 < 0) {
+		document.querySelector('#stps9').style.color = 'red';
+		document.querySelector('#stps13').style.color = 'red';
+		} else if (stps9 >= 0) {
+		document.querySelector('#stps9').style.color = 'blue';
+		document.querySelector('#stps13').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 자동이체  10 , 14
 var stps14 = tps5 -  tot
@@ -510,6 +891,16 @@ var stps14 = tps5 -  tot
 	var stps10 = stps14 / 36
 	stps10 = Math.ceil(stps10)
 	document.getElementById ("stps10").value = stps10.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps10 < 0) {
+		document.querySelector('#stps10').style.color = 'red';
+		document.querySelector('#stps14').style.color = 'red';
+		} else if (stps10 >= 0) {
+		document.querySelector('#stps10').style.color = 'blue';
+		document.querySelector('#stps14').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 자동이체  11 , 15
 var stps15 = ren2 -  tot
@@ -517,6 +908,15 @@ var stps15 = ren2 -  tot
 	var stps11 = stps15 / 36
 	stps11 = Math.ceil(stps11)
 	document.getElementById ("stps11").value = stps11.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps11 < 0) {
+		document.querySelector('#stps11').style.color = 'red';
+		document.querySelector('#stps15').style.color = 'red';
+		} else if (stps11 >= 0) {
+		document.querySelector('#stps11').style.color = 'blue';
+		document.querySelector('#stps15').style.color = 'blue';
+		}
+		;
+
 
 // 그린 자동이체  12 , 16
 var stps16 = ren5 -  tot
@@ -524,6 +924,15 @@ var stps16 = ren5 -  tot
 	var stps12 = stps16 / 36
 	stps12 = Math.ceil(stps12)
 	document.getElementById ("stps12").value = stps12.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps12 < 0) {
+		document.querySelector('#stps12').style.color = 'red';
+		document.querySelector('#stps16').style.color = 'red';
+		} else if (stps12 >= 0) {
+		document.querySelector('#stps12').style.color = 'blue';
+		document.querySelector('#stps16').style.color = 'blue';
+		}
+		;
+
 
 
 // 엘로우 신용카드  17 , 21
@@ -532,6 +941,14 @@ var stps21 = tps3 -  tot
 	var stps17 = stps21 / 36
 	stps17 = Math.ceil(stps17)
 	document.getElementById ("stps17").value = stps17.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps17 < 0) {
+		document.querySelector('#stps17').style.color = 'red';
+		document.querySelector('#stps21').style.color = 'red';
+		} else if (stps17 >= 0) {
+		document.querySelector('#stps17').style.color = 'blue';
+		document.querySelector('#stps21').style.color = 'blue';
+		}
+		;
 
 // 엘로우 자동이체  18 , 22
 var stps22 = tps6 -  tot
@@ -539,6 +956,14 @@ var stps22 = tps6 -  tot
 	var stps18 = stps22 / 36
 	stps18 = Math.ceil(stps18)
 	document.getElementById ("stps18").value = stps18.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps18 < 0) {
+		document.querySelector('#stps18').style.color = 'red';
+		document.querySelector('#stps22').style.color = 'red';
+		} else if (stps18 >= 0) {
+		document.querySelector('#stps18').style.color = 'blue';
+		document.querySelector('#stps22').style.color = 'blue';
+		}
+		;
 
 // 엘로우 렌탈단독 신용카드  19 , 23
 var stps23 = ren3 -  tot
@@ -546,6 +971,14 @@ var stps23 = ren3 -  tot
 	var stps19 = stps23 / 36
 	stps19 = Math.ceil(stps19)
 	document.getElementById ("stps19").value = stps19.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps19 < 0) {
+		document.querySelector('#stps19').style.color = 'red';
+		document.querySelector('#stps23').style.color = 'red';
+		} else if (stps19 >= 0) {
+		document.querySelector('#stps19').style.color = 'blue';
+		document.querySelector('#stps23').style.color = 'blue';
+		}
+		;
 
 // 엘로우 렌탈단독 자동이체  20 , 24
 var stps24 = ren6 -  tot
@@ -554,6 +987,13 @@ var stps24 = ren6 -  tot
 	stps20 = Math.ceil(stps20)
 	document.getElementById ("stps20").value = stps20.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+	if (stps20 < 0) {
+		document.querySelector('#stps20').style.color = 'red';
+		document.querySelector('#stps24').style.color = 'red';
+		} else if (stps20 >= 0) {
+		document.querySelector('#stps20').style.color = 'blue';
+		document.querySelector('#stps24').style.color = 'blue';
+		};
 
 		}
 
@@ -581,6 +1021,14 @@ var stps5 = tps1 -  tot
 	var stps1 = stps5 / 36
 	stps1 = Math.ceil(stps1)
 	document.getElementById ("stps1").value = stps1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+    if (stps1 < 0) {
+		document.querySelector('#stps1').style.color = 'red';
+		document.querySelector('#stps5').style.color = 'red';
+		} else if (stps1 >= 0) {
+		document.querySelector('#stps1').style.color = 'blue';
+		document.querySelector('#stps5').style.color = 'blue';
+		}
+		;
 
 // 블루에 자동이체  2 , 6
 var stps6 = tps4 -  tot
@@ -588,6 +1036,15 @@ var stps6 = tps4 -  tot
 	var stps2 = stps6 / 36
 	stps2 = Math.ceil(stps2)
 	document.getElementById ("stps2").value = stps2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps2 < 0) {
+		document.querySelector('#stps2').style.color = 'red';
+		document.querySelector('#stps6').style.color = 'red';
+		} else if (stps2 >= 0) {
+		document.querySelector('#stps2').style.color = 'blue';
+		document.querySelector('#stps6').style.color = 'blue';
+		}
+		;
+
 
 // 블루에 렌탈단독 신용카드  3 , 7
 var stps7 = ren1 -  tot
@@ -595,6 +1052,15 @@ var stps7 = ren1 -  tot
 	var stps3 = stps7 / 36
 	stps3 = Math.ceil(stps3)
 	document.getElementById ("stps3").value = stps3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps3 < 0) {
+		document.querySelector('#stps3').style.color = 'red';
+		document.querySelector('#stps7').style.color = 'red';
+		} else if (stps3 >= 0) {
+		document.querySelector('#stps3').style.color = 'blue';
+		document.querySelector('#stps7').style.color = 'blue';
+		}
+		;
+
 
 // 블루에 렌탈단독 자동이체  4 , 8
 var stps8 = ren4 -  tot
@@ -602,6 +1068,17 @@ var stps8 = ren4 -  tot
 	var stps4 = stps8 / 36
 	stps4 = Math.ceil(stps4)
 	document.getElementById ("stps4").value = stps4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	
+	if (stps4 < 0) {
+		document.querySelector('#stps4').style.color = 'red';
+		document.querySelector('#stps8').style.color = 'red';
+		} else if (stps4 >= 0) {
+		document.querySelector('#stps4').style.color = 'blue';
+		document.querySelector('#stps8').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 신용카드  9 , 13
 var stps13 = tps2 -  tot
@@ -609,6 +1086,16 @@ var stps13 = tps2 -  tot
 	var stps9 = stps13 / 36
 	stps9 = Math.ceil(stps9)
 	document.getElementById ("stps9").value = stps9.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps9 < 0) {
+		document.querySelector('#stps9').style.color = 'red';
+		document.querySelector('#stps13').style.color = 'red';
+		} else if (stps9 >= 0) {
+		document.querySelector('#stps9').style.color = 'blue';
+		document.querySelector('#stps13').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 자동이체  10 , 14
 var stps14 = tps5 -  tot
@@ -616,6 +1103,16 @@ var stps14 = tps5 -  tot
 	var stps10 = stps14 / 36
 	stps10 = Math.ceil(stps10)
 	document.getElementById ("stps10").value = stps10.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps10 < 0) {
+		document.querySelector('#stps10').style.color = 'red';
+		document.querySelector('#stps14').style.color = 'red';
+		} else if (stps10 >= 0) {
+		document.querySelector('#stps10').style.color = 'blue';
+		document.querySelector('#stps14').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 자동이체  11 , 15
 var stps15 = ren2 -  tot
@@ -623,6 +1120,15 @@ var stps15 = ren2 -  tot
 	var stps11 = stps15 / 36
 	stps11 = Math.ceil(stps11)
 	document.getElementById ("stps11").value = stps11.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps11 < 0) {
+		document.querySelector('#stps11').style.color = 'red';
+		document.querySelector('#stps15').style.color = 'red';
+		} else if (stps11 >= 0) {
+		document.querySelector('#stps11').style.color = 'blue';
+		document.querySelector('#stps15').style.color = 'blue';
+		}
+		;
+
 
 // 그린 자동이체  12 , 16
 var stps16 = ren5 -  tot
@@ -630,6 +1136,15 @@ var stps16 = ren5 -  tot
 	var stps12 = stps16 / 36
 	stps12 = Math.ceil(stps12)
 	document.getElementById ("stps12").value = stps12.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps12 < 0) {
+		document.querySelector('#stps12').style.color = 'red';
+		document.querySelector('#stps16').style.color = 'red';
+		} else if (stps12 >= 0) {
+		document.querySelector('#stps12').style.color = 'blue';
+		document.querySelector('#stps16').style.color = 'blue';
+		}
+		;
+
 
 
 // 엘로우 신용카드  17 , 21
@@ -638,6 +1153,14 @@ var stps21 = tps3 -  tot
 	var stps17 = stps21 / 36
 	stps17 = Math.ceil(stps17)
 	document.getElementById ("stps17").value = stps17.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps17 < 0) {
+		document.querySelector('#stps17').style.color = 'red';
+		document.querySelector('#stps21').style.color = 'red';
+		} else if (stps17 >= 0) {
+		document.querySelector('#stps17').style.color = 'blue';
+		document.querySelector('#stps21').style.color = 'blue';
+		}
+		;
 
 // 엘로우 자동이체  18 , 22
 var stps22 = tps6 -  tot
@@ -645,6 +1168,14 @@ var stps22 = tps6 -  tot
 	var stps18 = stps22 / 36
 	stps18 = Math.ceil(stps18)
 	document.getElementById ("stps18").value = stps18.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps18 < 0) {
+		document.querySelector('#stps18').style.color = 'red';
+		document.querySelector('#stps22').style.color = 'red';
+		} else if (stps18 >= 0) {
+		document.querySelector('#stps18').style.color = 'blue';
+		document.querySelector('#stps22').style.color = 'blue';
+		}
+		;
 
 // 엘로우 렌탈단독 신용카드  19 , 23
 var stps23 = ren3 -  tot
@@ -652,6 +1183,14 @@ var stps23 = ren3 -  tot
 	var stps19 = stps23 / 36
 	stps19 = Math.ceil(stps19)
 	document.getElementById ("stps19").value = stps19.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps19 < 0) {
+		document.querySelector('#stps19').style.color = 'red';
+		document.querySelector('#stps23').style.color = 'red';
+		} else if (stps19 >= 0) {
+		document.querySelector('#stps19').style.color = 'blue';
+		document.querySelector('#stps23').style.color = 'blue';
+		}
+		;
 
 // 엘로우 렌탈단독 자동이체  20 , 24
 var stps24 = ren6 -  tot
@@ -660,7 +1199,13 @@ var stps24 = ren6 -  tot
 	stps20 = Math.ceil(stps20)
 	document.getElementById ("stps20").value = stps20.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
-
+	if (stps20 < 0) {
+		document.querySelector('#stps20').style.color = 'red';
+		document.querySelector('#stps24').style.color = 'red';
+		} else if (stps20 >= 0) {
+		document.querySelector('#stps20').style.color = 'blue';
+		document.querySelector('#stps24').style.color = 'blue';
+		};
 		}
 
 }
@@ -687,6 +1232,14 @@ var stps5 = tps1 -  tot
 	var stps1 = stps5 / 36
 	stps1 = Math.ceil(stps1)
 	document.getElementById ("stps1").value = stps1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+    if (stps1 < 0) {
+		document.querySelector('#stps1').style.color = 'red';
+		document.querySelector('#stps5').style.color = 'red';
+		} else if (stps1 >= 0) {
+		document.querySelector('#stps1').style.color = 'blue';
+		document.querySelector('#stps5').style.color = 'blue';
+		}
+		;
 
 // 블루에 자동이체  2 , 6
 var stps6 = tps4 -  tot
@@ -694,6 +1247,15 @@ var stps6 = tps4 -  tot
 	var stps2 = stps6 / 36
 	stps2 = Math.ceil(stps2)
 	document.getElementById ("stps2").value = stps2.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps2 < 0) {
+		document.querySelector('#stps2').style.color = 'red';
+		document.querySelector('#stps6').style.color = 'red';
+		} else if (stps2 >= 0) {
+		document.querySelector('#stps2').style.color = 'blue';
+		document.querySelector('#stps6').style.color = 'blue';
+		}
+		;
+
 
 // 블루에 렌탈단독 신용카드  3 , 7
 var stps7 = ren1 -  tot
@@ -701,6 +1263,15 @@ var stps7 = ren1 -  tot
 	var stps3 = stps7 / 36
 	stps3 = Math.ceil(stps3)
 	document.getElementById ("stps3").value = stps3.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps3 < 0) {
+		document.querySelector('#stps3').style.color = 'red';
+		document.querySelector('#stps7').style.color = 'red';
+		} else if (stps3 >= 0) {
+		document.querySelector('#stps3').style.color = 'blue';
+		document.querySelector('#stps7').style.color = 'blue';
+		}
+		;
+
 
 // 블루에 렌탈단독 자동이체  4 , 8
 var stps8 = ren4 -  tot
@@ -708,6 +1279,17 @@ var stps8 = ren4 -  tot
 	var stps4 = stps8 / 36
 	stps4 = Math.ceil(stps4)
 	document.getElementById ("stps4").value = stps4.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	
+	if (stps4 < 0) {
+		document.querySelector('#stps4').style.color = 'red';
+		document.querySelector('#stps8').style.color = 'red';
+		} else if (stps4 >= 0) {
+		document.querySelector('#stps4').style.color = 'blue';
+		document.querySelector('#stps8').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 신용카드  9 , 13
 var stps13 = tps2 -  tot
@@ -715,6 +1297,16 @@ var stps13 = tps2 -  tot
 	var stps9 = stps13 / 36
 	stps9 = Math.ceil(stps9)
 	document.getElementById ("stps9").value = stps9.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps9 < 0) {
+		document.querySelector('#stps9').style.color = 'red';
+		document.querySelector('#stps13').style.color = 'red';
+		} else if (stps9 >= 0) {
+		document.querySelector('#stps9').style.color = 'blue';
+		document.querySelector('#stps13').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 자동이체  10 , 14
 var stps14 = tps5 -  tot
@@ -722,6 +1314,16 @@ var stps14 = tps5 -  tot
 	var stps10 = stps14 / 36
 	stps10 = Math.ceil(stps10)
 	document.getElementById ("stps10").value = stps10.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps10 < 0) {
+		document.querySelector('#stps10').style.color = 'red';
+		document.querySelector('#stps14').style.color = 'red';
+		} else if (stps10 >= 0) {
+		document.querySelector('#stps10').style.color = 'blue';
+		document.querySelector('#stps14').style.color = 'blue';
+		}
+		;
+
+
 
 // 그린 자동이체  11 , 15
 var stps15 = ren2 -  tot
@@ -729,6 +1331,15 @@ var stps15 = ren2 -  tot
 	var stps11 = stps15 / 36
 	stps11 = Math.ceil(stps11)
 	document.getElementById ("stps11").value = stps11.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps11 < 0) {
+		document.querySelector('#stps11').style.color = 'red';
+		document.querySelector('#stps15').style.color = 'red';
+		} else if (stps11 >= 0) {
+		document.querySelector('#stps11').style.color = 'blue';
+		document.querySelector('#stps15').style.color = 'blue';
+		}
+		;
+
 
 // 그린 자동이체  12 , 16
 var stps16 = ren5 -  tot
@@ -736,6 +1347,15 @@ var stps16 = ren5 -  tot
 	var stps12 = stps16 / 36
 	stps12 = Math.ceil(stps12)
 	document.getElementById ("stps12").value = stps12.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps12 < 0) {
+		document.querySelector('#stps12').style.color = 'red';
+		document.querySelector('#stps16').style.color = 'red';
+		} else if (stps12 >= 0) {
+		document.querySelector('#stps12').style.color = 'blue';
+		document.querySelector('#stps16').style.color = 'blue';
+		}
+		;
+
 
 
 // 엘로우 신용카드  17 , 21
@@ -744,6 +1364,14 @@ var stps21 = tps3 -  tot
 	var stps17 = stps21 / 36
 	stps17 = Math.ceil(stps17)
 	document.getElementById ("stps17").value = stps17.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps17 < 0) {
+		document.querySelector('#stps17').style.color = 'red';
+		document.querySelector('#stps21').style.color = 'red';
+		} else if (stps17 >= 0) {
+		document.querySelector('#stps17').style.color = 'blue';
+		document.querySelector('#stps21').style.color = 'blue';
+		}
+		;
 
 // 엘로우 자동이체  18 , 22
 var stps22 = tps6 -  tot
@@ -751,6 +1379,14 @@ var stps22 = tps6 -  tot
 	var stps18 = stps22 / 36
 	stps18 = Math.ceil(stps18)
 	document.getElementById ("stps18").value = stps18.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps18 < 0) {
+		document.querySelector('#stps18').style.color = 'red';
+		document.querySelector('#stps22').style.color = 'red';
+		} else if (stps18 >= 0) {
+		document.querySelector('#stps18').style.color = 'blue';
+		document.querySelector('#stps22').style.color = 'blue';
+		}
+		;
 
 // 엘로우 렌탈단독 신용카드  19 , 23
 var stps23 = ren3 -  tot
@@ -758,6 +1394,14 @@ var stps23 = ren3 -  tot
 	var stps19 = stps23 / 36
 	stps19 = Math.ceil(stps19)
 	document.getElementById ("stps19").value = stps19.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	if (stps19 < 0) {
+		document.querySelector('#stps19').style.color = 'red';
+		document.querySelector('#stps23').style.color = 'red';
+		} else if (stps19 >= 0) {
+		document.querySelector('#stps19').style.color = 'blue';
+		document.querySelector('#stps23').style.color = 'blue';
+		}
+		;
 
 // 엘로우 렌탈단독 자동이체  20 , 24
 var stps24 = ren6 -  tot
@@ -766,6 +1410,13 @@ var stps24 = ren6 -  tot
 	stps20 = Math.ceil(stps20)
 	document.getElementById ("stps20").value = stps20.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+	if (stps20 < 0) {
+		document.querySelector('#stps20').style.color = 'red';
+		document.querySelector('#stps24').style.color = 'red';
+		} else if (stps20 >= 0) {
+		document.querySelector('#stps20').style.color = 'blue';
+		document.querySelector('#stps24').style.color = 'blue';
+		};
 		}
 
 }
@@ -780,8 +1431,8 @@ function reset() {
 	document.getElementById ("output3").value = ""
 	document.getElementById ("tot").value = ""
 	document.getElementById ("now").value = ""
-	document.getElementById ("tot2").value = ""
-	document.getElementById ("tot3").value = ""
+	//document.getElementById ("tot2").value = ""
+	//document.getElementById ("tot3").value = ""
   
 }
 
