@@ -33,7 +33,7 @@
 
 <br>
 <*>현재 사용중인 총금액을 입력하세요 (신규는 빈칸에서 엔터!) <br>
-<input type="text" id="now" onkeyup="enterkey1(36)">원 (금액 입력후 엔터 => 가능한도표시)
+<input style="border-color:rgb(4, 0, 255)" type="text" id="now" onkeyup="enterkey1(36)">원 (금액 입력후 엔터 => 가능한도표시)
 <br><br>
 
 <**> 신규 추가 금액 (월요금으로 입력하세요) / 
@@ -42,7 +42,7 @@
 총 신규 3개까지 입력 가능합니다.<br>
 <br>
 
-1. <input type="text" id="input1" onkeyup="enterkey1(36)">원
+ 1. <input type="text" id="input1" onkeyup="enterkey1(36)">원
 <input type="button" id="m36" value="36" onclick="a1(this.value)"> 
 <input type="button" id="m48" value="48" onclick="a1(this.value)"> 
 <input type="button" id="m60" value="60" onclick="a1(this.value)">
@@ -179,8 +179,8 @@ function a1(m) {
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
 // 입력값에도 콤마를 넣는 수식
-	// document.getElementById ("input1").value = a1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
-	// document.getElementById ("output1").value = mm1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+	// document.getElementById ("input1").value= a1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+   //	document.getElementById ("output1").value = mm1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
 
 // 블루에 신용카드  1 , 5
