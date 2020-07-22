@@ -7,6 +7,16 @@
 	<title>렌탈계산기 v.03</title>
 	<link rel="stylesheet" href="css/buttonsum3.css">
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165559603-1"></script>
+  <script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-165559603-1');
+  </script>
+
 </head>
 
 <body>	
@@ -22,34 +32,34 @@
 </fieldset>
 
 <br>
-현재 사용중인 총금액을 입력하세요 (신규는 빈칸으로 두세요) <br>
-<input type="text" id="now" onkeyup="enterkey1(36)">원
+<*>현재 사용중인 총금액을 입력하세요 (신규는 빈칸에서 엔터!) <br>
+<input type="text" id="now" onkeyup="enterkey1(36)">원 (금액 입력후 엔터 => 가능한도표시)
 <br><br>
 
-<설명> 신규 추가 금액 (월요금으로 입력하세요) / 
+<**> 신규 추가 금액 (월요금으로 입력하세요) / 
 금액 입력후 엔터를 치시면 자동 36개월로 계산됩니다. 
 <br>
-총 신규 3개까지 아래 입력 가능합니다.<br>
+총 신규 3개까지 입력 가능합니다.<br>
 <br>
 
 1. <input type="text" id="input1" onkeyup="enterkey1(36)">원
 <input type="button" id="m36" value="36" onclick="a1(this.value)"> 
 <input type="button" id="m48" value="48" onclick="a1(this.value)"> 
 <input type="button" id="m60" value="60" onclick="a1(this.value)">
-<input type="text" id="output1">
+소계 : <input style="width : 100px" type="text" id="output1">원
 <br>
 2. <input type="text" id="input2"onkeyup="enterkey2(36)">원
 <input type="button" id="m36" value="36" onclick="a2(this.value)"> 
 <input type="button" id="m48" value="48" onclick="a2(this.value)"> 
 <input type="button" id="m60" value="60" onclick="a2(this.value)"> 
-<input type="text" id="output2">
+소계 : <input style="width : 100px" type="text" id="output2">원
 
 <br>
 3. <input type="text" id="input3"onkeyup="enterkey3(36)">원
 <input type="button" id="m36" value="36" onclick="a3(this.value)"> 
 <input type="button" id="m48" value="48" onclick="a3(this.value)"> 
 <input type="button" id="m60" value="60" onclick="a3(this.value)"> 
-<input type="text" id="output3">
+소계 : <input style="width : 100px" type="text" id="output3">원
 
 <br><br>
 총 렌탈사용 요금
@@ -61,7 +71,7 @@
 블루등급 신용카드를 사용하는 TPS고객 가능 월한도 금액 (36개월) <br>
 <input type="text" id="tot3" ><br> -->
 
-
+(가능한도 : 파란색 가능 / 빨간색 불가능)
   
 
 	<style type="text/css">
@@ -72,6 +82,7 @@
 	  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
 	.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
 	.tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top}
+	input {text-align:center;}
 	</style>
 
 
