@@ -23,23 +23,28 @@
 
 <button id="reset" type="button" onclick="reset()">초기화</button><br><br>
 
-<fieldset style="width : 370px">
+	
+<div id="layer1" style="position:absolute; left:270px; top:62px; width:65px; height:130px; z-index:1; border-width:1px; border-style:none;">
+	<img clsss ="img1" src="img/bono2.png" width="120" height="95">
+	</div>
+
+<fieldset class = "topinput">    
 	<legend> 결제방법 </legend>
 	<p>고객의 결제 방법을 선택하세요.</p>
 	<label><input type="radio" name="subject" value="speaking">신용카드</label>
 	<label><input type="radio" name="subject" value="grammar">자동이체</label>
-	    
+
 </fieldset>
 
+		
 <br>
-<*>현재 사용중인 총금액을 입력하세요 (신규는 빈칸에서 엔터!) <br>
+<*>현재 사용 전체금액 입력 (신규는 빈칸) <br>
 <input style="border-color:rgb(4, 0, 255)" type="text" id="now" onkeyup="enterkey1(36)">원 (금액 입력후 엔터 => 가능한도표시)
 <br><br>
 
 <**> 신규 추가 금액 (월요금으로 입력하세요) / 
-금액 입력후 엔터를 치시면 자동 36개월로 계산됩니다. 
-<br>
-총 신규 3개까지 입력 가능합니다.<br>
+금액 입력후 엔터! 36개월 
+
 <br>
 
  1. <input type="text" id="input1" onkeyup="enterkey1(36)">원
@@ -83,6 +88,8 @@
 	.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
 	.tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top}
 	input {text-align:center;}
+	.topinput {width : 370px ; color : blue }
+	.img1 {width : 80%;}
 	</style>
 
 
