@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>렌탈계산기 v0.9</title>
+	<title>렌탈계산기 v1.0</title>
 	<link rel="stylesheet" href="css/buttonsum3.css">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -72,8 +72,8 @@
 	</div>
 
 <fieldset class = "topinput">    
-	<legend> 렌탈계산기 (v0.9) </legend>
-	<p>고객 거래 종류를 고르세요 (개발중).</p>
+	<legend> 렌탈계산기 (v1.0) </legend>
+	<p>고객의 거래 종류 선택 (개발중).</p>
 	<label><input type="radio" name="subject" value="speaking">완전 신규</label>
 	<label><input type="radio" name="subject" value="grammar">추가 신규</label>
 
@@ -197,6 +197,10 @@ width: 100px;
 	  </tr>
 	</tbody>
 	</table>
+<br>
+<strong> <a style="color: green;"> 그린등급 </a>신용카드 에어컨, 안마의자 가능여부 </strong><br>
+<input type="text" id="air" style="width: 100px;">
+<input type="text" id="airover" style="width: 120px; border: 0cm none; color:  red;">
 
 
 <script>
@@ -216,7 +220,6 @@ var ren3 = 3000000;
 var ren4 = 3600000;
 var ren5 = 3000000;
 var ren6 = 1800000;
-
 
 
 function a1(m) {
@@ -246,7 +249,25 @@ function a1(m) {
 	document.getElementById ("subtot").value = subtot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+	// 그린등급 품의 가능여부 표시
 
+	if (tot > 5400000) {
+		document.getElementById ("air").value = "품의 불가능"
+		document.getElementById ("air").style.color = 'red';
+		var air1 = (tot - 5400000)/36;
+		air1 = Math.ceil(air1) 
+		document.getElementById ("airover").style.color = 'red';
+		document.getElementById ("airover").value = "월 "+air1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원 초과"
+		}
+
+	else 
+		{document.getElementById ("air").value = "품의 가능";
+		document.getElementById ("air").style.color = 'blue';
+		var air1 = (5400000-tot)/36;
+		air1 = Math.ceil(air1) 
+		document.getElementById ("airover").style.color = 'blue';
+		document.getElementById ("airover").value = "월 "+air1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원 더 가능"
+		}	 
 
 
 	// 블루에 자동이체  1 , 5
@@ -909,7 +930,25 @@ function a2(m) {
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
 
-	
+	// 그린등급 품의 가능여부 표시
+
+	if (tot > 5400000) {
+		document.getElementById ("air").value = "품의 불가능"
+		document.getElementById ("air").style.color = 'red';
+		var air1 = (tot - 5400000)/36;
+		air1 = Math.ceil(air1) 
+		document.getElementById ("airover").style.color = 'red';
+		document.getElementById ("airover").value = "월 "+air1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원 초과"
+		}
+
+	else 
+		{document.getElementById ("air").value = "품의 가능";
+		document.getElementById ("air").style.color = 'blue';
+		var air1 = (5400000-tot)/36;
+		air1 = Math.ceil(air1) 
+		document.getElementById ("airover").style.color = 'blue';
+		document.getElementById ("airover").value = "월 "+air1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원 더 가능"
+		}	
 
 
 
@@ -1169,14 +1208,6 @@ function a2(m) {
 		document.querySelector('#stps9').style.color = 'blue';
 		document.querySelector('#stps13').style.color = 'blue';
 		}
-
-
-
-
-
-
-
-
 
 
 
@@ -1574,9 +1605,25 @@ function a3(m) {
 	document.getElementById ("subtot").value = subtot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+	// 그린등급 품의 가능여부 표시
 
+	if (tot > 5400000) {
+		document.getElementById ("air").value = "품의 불가능"
+		document.getElementById ("air").style.color = 'red';
+		var air1 = (tot - 5400000)/36;
+		air1 = Math.ceil(air1) 
+		document.getElementById ("airover").style.color = 'red';
+		document.getElementById ("airover").value = "월 "+air1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원 초과"
+		}
 
-
+	else 
+		{document.getElementById ("air").value = "품의 가능";
+		document.getElementById ("air").style.color = 'blue';
+		var air1 = (5400000-tot)/36;
+		air1 = Math.ceil(air1) 
+		document.getElementById ("airover").style.color = 'blue';
+		document.getElementById ("airover").value = "월 "+air1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원 더 가능"
+		}	
 
 
 // 블루에 자동이체  1 , 5
@@ -2188,7 +2235,25 @@ function enterkey1(m) {
 	document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
 
+	// 그린등급 품의 가능여부 표시
 
+	if (tot > 5400000) {
+		document.getElementById ("air").value = "품의 불가능"
+		document.getElementById ("air").style.color = 'red';
+		var air1 = (tot - 5400000)/36;
+		air1 = Math.ceil(air1) 
+		document.getElementById ("airover").style.color = 'red';
+		document.getElementById ("airover").value = "월 "+air1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원 초과"
+		}
+
+	else 
+		{document.getElementById ("air").value = "품의 가능";
+		document.getElementById ("air").style.color = 'blue';
+		var air1 = (5400000-tot)/36;
+		air1 = Math.ceil(air1) 
+		document.getElementById ("airover").style.color = 'blue';
+		document.getElementById ("airover").value = "월 "+air1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원 더 가능"
+		}	
 
 
 
@@ -2805,7 +2870,25 @@ function enterkey2(m) {
 			document.getElementById ("subtot").value = subtot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 			document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+	// 그린등급 품의 가능여부 표시
 
+	if (tot > 5400000) {
+		document.getElementById ("air").value = "품의 불가능"
+		document.getElementById ("air").style.color = 'red';
+		var air1 = (tot - 5400000)/36;
+		air1 = Math.ceil(air1) 
+		document.getElementById ("airover").style.color = 'red';
+		document.getElementById ("airover").value = "월 "+air1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원 초과"
+		}
+
+	else 
+		{document.getElementById ("air").value = "품의 가능";
+		document.getElementById ("air").style.color = 'blue';
+		var air1 = (5400000-tot)/36;
+		air1 = Math.ceil(air1) 
+		document.getElementById ("airover").style.color = 'blue';
+		document.getElementById ("airover").value = "월 "+air1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원 더 가능"
+		}	
 
 
 
@@ -3418,7 +3501,26 @@ function enterkey3(m) {
 		var subtot = +a1+ +a2+ +a3
 		document.getElementById ("subtot").value = subtot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 		document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+		
+	// 그린등급 품의 가능여부 표시
 
+	if (tot > 5400000) {
+		document.getElementById ("air").value = "품의 불가능"
+		document.getElementById ("air").style.color = 'red';
+		var air1 = (tot - 5400000)/36;
+		air1 = Math.ceil(air1) 
+		document.getElementById ("airover").style.color = 'red';
+		document.getElementById ("airover").value = "월 "+air1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원 초과"
+		}
+
+	else 
+		{document.getElementById ("air").value = "품의 가능";
+		document.getElementById ("air").style.color = 'blue';
+		var air1 = (5400000-tot)/36;
+		air1 = Math.ceil(air1) 
+		document.getElementById ("airover").style.color = 'blue';
+		document.getElementById ("airover").value = "월 "+air1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원 더 가능"
+		}	
 
 
 
@@ -4011,8 +4113,8 @@ function reset() {
 	document.getElementById ("output3").value = ""
 	document.getElementById ("tot").value = ""
 	document.getElementById ("now").value = ""
-	//document.getElementById ("tot2").value = ""
-	//document.getElementById ("tot3").value = ""
+	document.getElementById ("air").value = ""
+	document.getElementById ("airover").value = ""
   
 
 }
@@ -4049,7 +4151,25 @@ function aa1(m) {
 			document.getElementById ("subtot").value = subtot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 			document.getElementById ("tot").value = tot.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
 
+		// 그린등급 품의 가능여부 표시
 
+		if (tot > 5400000) {
+		document.getElementById ("air").value = "품의 불가능"
+		document.getElementById ("air").style.color = 'red';
+		var air1 = (tot - 5400000)/36;
+		air1 = Math.ceil(air1) 
+		document.getElementById ("airover").style.color = 'red';
+		document.getElementById ("airover").value = "월 "+air1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원 초과"
+		}
+
+	else 
+		{document.getElementById ("air").value = "품의 가능";
+		document.getElementById ("air").style.color = 'blue';
+		var air1 = (5400000-tot)/36;
+		air1 = Math.ceil(air1) 
+		document.getElementById ("airover").style.color = 'blue';
+		document.getElementById ("airover").value = "월 "+air1.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원 더 가능"
+		}	
 
 
 
@@ -4254,7 +4374,10 @@ var stps24 = ren6 -  tot
 }
 
 
-
+// if (tot < 5400000) {
+// 		document.getElementById ("air").value = "품의 불가능"}
+// 	else 
+// 	{document.getElementById ("air").value = "품의 가능"} ; 
 
 
 </script>
