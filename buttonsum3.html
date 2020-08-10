@@ -72,9 +72,9 @@
 	</div> -->
 
 <fieldset class = "topinput">    
-	<legend> 상품검색 (모델코드입력) (v1.1) </legend>
+	<legend> 제품 검색 (코드 or 제품명 입력) </legend>
 	<input type="text" id="link" >
-	<button type="button" onclick="makeLink()">검색</button> 정책표 코드를 복사&붙이기
+	<button type="button" onclick="makeLink()">검색</button>
 	<div id = "click"> 제품 스팩 검색 </div>
 </fieldset>
 
@@ -232,7 +232,7 @@ var ren6 = 1800000;
 function makeLink(){
 var temp = document.getElementById ("link").value;
 // document.write('<a href="http://m.빌리고.com/model/search.php?ss_tx='+temp+'"> 링크 </a>')
-document.getElementById('click').innerHTML = '<a href="http://m.빌리고.com/model/search.php?ss_tx='+temp+'" target="_blank"    >빌리고 링크 </a>'
+document.getElementById('click').innerHTML = '<a href="http://m.빌리고.com/model/search.php?ss_tx='+temp+'" target="_blank"    > '+temp+'링크 <클릭> </a>'
 }
 
 // https://www.hello-rental.net/goods/goods_search.php?keyword=K579TS35E&recentCount=10
