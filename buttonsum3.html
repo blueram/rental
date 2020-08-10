@@ -67,16 +67,15 @@
 
 <br><br>
 	
-<div id="layer1" style="position:absolute; left:270px; top:68px; width:65px; height:130px; z-index:1; border-width:1px; border-style:none;">
+<!-- <div id="layer1" style="position:absolute; left:270px; top:68px; width:65px; height:130px; z-index:1; border-width:1px; border-style:none;">
 	<img clsss ="img1" src="bono2.png" width="120" height="95">
-	</div>
+	</div> -->
 
 <fieldset class = "topinput">    
-	<legend> 렌탈계산기 (v1.0) </legend>
-	<p>고객의 거래 종류 선택 (개발중).</p>
-	<label><input type="radio" name="subject" value="speaking">완전 신규</label>
-	<label><input type="radio" name="subject" value="grammar">추가 신규</label>
-
+	<legend> 상품검색 (모델코드입력) (v1.1) </legend>
+	<input type="text" id="link" >
+	<button type="button" onclick="makeLink()">검색</button> 정책표 코드를 복사&붙이기
+	<div id = "click"> 제품 스팩 검색 </div>
 </fieldset>
 
 		<!--신규금액 입력 받는곳-->
@@ -226,6 +225,17 @@ var ren3 = 3000000;
 var ren4 = 3600000;
 var ren5 = 3000000;
 var ren6 = 1800000;
+
+
+// 제품 스팩 검색 링크
+
+function makeLink(){
+var temp = document.getElementById ("link").value;
+// document.write('<a href="http://m.빌리고.com/model/search.php?ss_tx='+temp+'"> 링크 </a>')
+document.getElementById('click').innerHTML = '<a href="http://m.빌리고.com/model/search.php?ss_tx='+temp+'" target="_blank"    >빌리고 링크 </a>'
+}
+
+// https://www.hello-rental.net/goods/goods_search.php?keyword=K579TS35E&recentCount=10
 
 
 function a(m,l)
