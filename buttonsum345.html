@@ -60,9 +60,8 @@
 </head>
 
 <body>	
-	<a href="#" class="myButton" onclick="reset()">초기화</a>
-	<a href="#" class="a111" onclick="aa1(36)" >가능 한도</a>
-	<a href="#" class="aaa2" onclick="a(36)" >품의 가능 여부</a>
+	<a href="#" class="myButton" onclick="reset()">초기화</a> __ v2.01 (2020.9.10 수정중)
+
 
 
 <br><br>
@@ -71,45 +70,41 @@
 	<img clsss ="img1" src="bono2.png" width="120" height="95">
 	</div> -->
 
-<fieldset class = "topinput">    
-	<legend> 제품 검색 (코드 or 제품명 입력) </legend>
-	<input type="text" id="link" >
-	<button type="button" onclick="makeLink()">검색</button>
-	<div id = "click"> 제품 스팩 검색 </div>
-</fieldset>
 
 		<!--신규금액 입력 받는곳-->
 
 <br>
-<a style="font-size:18px; font-weight:600;">총 사용금액 입력</a> (예 : 2,460,500원) <br>
-<input style="border-color:rgb(4, 0, 255)" type="text" id="now" onkeyup="inputNumberAutoComma(this), enterkey1(1);">원 
+<a style="font-size:18px; font-weight:600;">사용중 총금액</a> <br>
+<input value="0" type="text" id="now" onkeyup="inputNumberAutoComma(this), enterkey1(1);">원 
+<br><br><br>
+
+<a style="font-size:18px; font-weight:600;">신규 월 요금 입력 </a>
 <br><br>
-
-<a style="font-size:18px; font-weight:600;">월 요금으로 입력 </a>(예 : 월 34,900원) <a style="color: blue;"> __ 엔터는 <input type="button" id="m36" value="36"> 입력</a>
-
-<br>
-
- 1. <input type="text" id="input1" onkeyup="inputNumberAutoComma(this),enterkey1(1)">원
-<input type="button" id="m36" value="36" onclick="a(36,1)"> 
+<section id ="prod">
+ <input value="00" type="text" id="input1" onkeyup="inputNumberAutoComma(this),enterkey1(1)"> 원
+ <input style="margin-left:11px;" type="button" id="m36" value="36" onclick="a(36,1)"> 
 <input type="button" id="m48" value="48" onclick="a(48,1)"> 
 <input type="button" id="m60" value="60" onclick="a(60,1)">
-소계 : <input style="width : 100px" type="text" id="output1">원
+<input style="width : 100px;margin-left:11px;" type="text" id="output1"> 원
+</section>
 <br>
-2. <input type="text" id="input2"onkeyup="inputNumberAutoComma(this),enterkey1(2)">원
-<input type="button" id="mm36" value="36" onclick="a(36,2)"> 
+<section id ="prod1">
+<input value="00" type="text" id="input2"onkeyup="inputNumberAutoComma(this),enterkey1(2)"> 원
+<input style="margin-left:11px;" type="button" id="mm36" value="36" onclick="a(36,2)"> 
 <input type="button" id="mm48" value="48" onclick="a(48,2)"> 
 <input type="button" id="mm60" value="60" onclick="a(60,2)"> 
-소계 : <input style="width : 100px" type="text" id="output2">원
-
+<input style="width : 100px;margin-left:11px;" type="text" id="output2"> 원
+</section>
 <br>
-3. <input type="text" id="input3"onkeyup="inputNumberAutoComma(this),enterkey1(3)">원
-<input type="button" id="mmm36" value="36" onclick="a(36,3)"> 
+<section id ="prod2">
+<input value="00" type="text" id="input3"onkeyup="inputNumberAutoComma(this),enterkey1(3)"> 원
+<input style="margin-left:11px;" type="button" id="mmm36" value="36" onclick="a(36,3)"> 
 <input type="button" id="mmm48" value="48" onclick="a(48,3)"> 
 <input type="button" id="mmm60" value="60" onclick="a(60,3)"> 
-소계 : <input style="width : 100px" type="text" id="output3">원
+<input style="width : 100px;margin-left:11px;" type="text" id="output3"> 원
+</section>
 
-<br><br>
-월 납부 요금
+<h3> 월 납부 요금</h3>
 <input class="subtot1"   type="text" id="subtot" style="
 width: 100px;
 " >
@@ -118,8 +113,8 @@ width: 100px;
 <input type="text" id="tot" style="width: 100px;">
 
 <br>
-<br>
-<strong> <a style="color: green;"> 그린등급 카드결제시</a><br>(렌탈단독) 에어컨, 안마의자 / (TPS) 김치냉장고, 세탁기 가능여부 </strong><br>
+<br><br>
+<strong> <a style="color: green;"> * 특별한도 * 그린등급 카드결제시</a><br>(렌탈단독) 에어컨, 안마의자 / (TPS) 김치냉장고, 세탁기 가능여부 </strong><br>
 
 <input type="text" id="air" style="width: 100px;">
 <input type="text" id="airover" style="width: 120px; border: 0cm none; color:  red;">
@@ -131,8 +126,10 @@ width: 100px;
 블루등급 신용카드를 사용하는 TPS고객 가능 월한도 금액 (36개월) <br>
 <input type="text" id="tot3" ><br> -->
 
-(가능한도 : <a style="color: blue;"> 파란색 가능 금액 </a> / <a style="color: red;"> 빨간색 불가능</a>)
-  
+<!-- (가능한도 : <a style="color: blue;"> 파란색 가능 금액 </a> / <a style="color: red;"> 빨간색 불가능</a>)-->
+<a href="#" class="a111" onclick="aa1(36)" >가능 한도</a>
+<a href="#" class="aaa2" onclick="a(36)" >품의 가능 여부</a>
+<br><br>
 
 	<style type="text/css">
 	.tg  {border-collapse:collapse;border-spacing:0;}
@@ -205,7 +202,14 @@ width: 100px;
 	</tbody>
 	</table>
 
-
+<br>
+	
+<fieldset class = "topinput">    
+	<legend> 제품 검색 (코드 or 제품명 입력) </legend>
+	<input type="text" id="link" >
+	<button type="button" onclick="makeLink()">검색</button>
+	<div id = "click"> 제품 스팩 검색 </div>
+</fieldset>
 <script src="button.js"></script>
 
 </body>
