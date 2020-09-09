@@ -1,6 +1,6 @@
 	
-		
-		body
+
+body
 {
 	background-color:white;
 
@@ -14,7 +14,7 @@
 }
 
 
-
+/* 가장위에 버튼 디자인하는 css */
 .myButton {
 	box-shadow: 3px 5px 0px 0px #1564ad;
 	background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
@@ -92,9 +92,44 @@
 	top:1px;
 }
 
+#input1,#input2,#input3
+{
+width: 120px;
+border : 0;
+border-bottom : 1px solid red;
+font-size : 30px ;
+margin-top: 0px;
+}
+
+#output1,#output2,#output3 {
+width: 2%;
+border : 0;
+}
+
+#prod{
+display:flex;
+align-items: flex-end;
+margin-top: 0px;
+
+}
+
+#prod1,#prod2{
+	display:flex;
+	align-items: flex-end;
+
+}
 
 
+#now {
+	border : 0;
+	border-bottom : 1px solid blue;
+	font-size: 30px;
+	width: 220px;
 
+}
+
+
+/*		 		
 				
 #container {
 	width:500px;
@@ -133,3 +168,6 @@ label.reg {
 	 width: 70;
 	 color : black ;
  }
+
+ */
+ 
