@@ -59,12 +59,13 @@
 
 </head>
 
-<body>	
-	<a href="#" class="myButton" onclick="reset()">초기화</a> __ v2.01 (2020.9.10 수정중)
+<body>
+	<a> v2.01 (2020.9.10 수정중)</a><br>	
+	<a href="#" class="myButton" onclick="reset()">초기화</a> 
 
 
 
-<br><br>
+<br>
 	
 <!-- <div id="layer1" style="position:absolute; left:270px; top:68px; width:65px; height:130px; z-index:1; border-width:1px; border-style:none;">
 	<img clsss ="img1" src="bono2.png" width="120" height="95">
@@ -74,38 +75,36 @@
 		<!--신규금액 입력 받는곳-->
 
 <br>
-<a style="font-size:18px; font-weight:600;">사용중 총금액</a> <br>
-<input value="0" type="text" id="now" onkeyup="inputNumberAutoComma(this), enterkey1(1);">원 
-<br><br><br>
-
-<a style="font-size:18px; font-weight:600;">신규 월 요금 입력 </a>
+<!-- <a style="font-size:18px; font-weight:600;">사용중 총금액</a> <br>-->
+<input placeholder="사용중 총금액" type="text" id="now" onkeyup="inputNumberAutoComma(this), enterkey1(1);">원 
 <br><br>
+
+<!--<a style="font-size:18px; font-weight:600;">신규 월 요금 입력 </a>-->
 <section id ="prod">
- <input value="00" type="text" id="input1" onkeyup="inputNumberAutoComma(this),enterkey1(1)"> 원
+ <input placeholder="신규1" type="text" id="input1" onkeyup="inputNumberAutoComma(this),enterkey1(1)"> 원
  <input style="margin-left:11px;" type="button" id="m36" value="36" onclick="a(36,1)"> 
 <input type="button" id="m48" value="48" onclick="a(48,1)"> 
 <input type="button" id="m60" value="60" onclick="a(60,1)">
-<input style="width : 100px;margin-left:11px;" type="text" id="output1"> 원
+<input style="width : 100px;margin-left:11px;" type="text" id="output1"> 
 </section>
 <br>
 <section id ="prod1">
-<input value="00" type="text" id="input2"onkeyup="inputNumberAutoComma(this),enterkey1(2)"> 원
+<input placeholder="신규2"type="text" id="input2"onkeyup="inputNumberAutoComma(this),enterkey1(2)"> 원
 <input style="margin-left:11px;" type="button" id="mm36" value="36" onclick="a(36,2)"> 
 <input type="button" id="mm48" value="48" onclick="a(48,2)"> 
 <input type="button" id="mm60" value="60" onclick="a(60,2)"> 
-<input style="width : 100px;margin-left:11px;" type="text" id="output2"> 원
+<input style="width : 100px;margin-left:11px;" type="text" id="output2"> 
 </section>
 <br>
 <section id ="prod2">
-<input value="00" type="text" id="input3"onkeyup="inputNumberAutoComma(this),enterkey1(3)"> 원
+<input placeholder="신규3"type="text" id="input3"onkeyup="inputNumberAutoComma(this),enterkey1(3)"> 원
 <input style="margin-left:11px;" type="button" id="mmm36" value="36" onclick="a(36,3)"> 
 <input type="button" id="mmm48" value="48" onclick="a(48,3)"> 
 <input type="button" id="mmm60" value="60" onclick="a(60,3)"> 
-<input style="width : 100px;margin-left:11px;" type="text" id="output3"> 원
+<input style="width : 100px;margin-left:11px;" type="text" id="output3">
 </section>
-
-<h3> 월 납부 요금</h3>
-<input class="subtot1"   type="text" id="subtot" style="
+<br>
+<input value="월총금액" class="subtot1"   type="text" id="subtot" style="
 width: 100px;
 " >
 
