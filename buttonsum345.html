@@ -60,26 +60,141 @@
 </head>
 
 <body>
-	<a> v2.01 (2020.9.10 수정중)</a><br>	
-	<a href="#" class="myButton" onclick="reset()">초기화</a> 
 
+	<img src="t.jpg" style width="500;" height="100">	<br><br>
 
-
-<br>
+	<a href="#" class="a111" onclick="aa1(36)" >가능 한도</a>
+	<a href="#" class="aaa2" onclick="a(36)" >품의 가능 여부</a>
+	<br><br>
 	
-<!-- <div id="layer1" style="position:absolute; left:270px; top:68px; width:65px; height:130px; z-index:1; border-width:1px; border-style:none;">
-	<img clsss ="img1" src="bono2.png" width="120" height="95">
-	</div> -->
+		<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;}
+		.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+		  overflow:hidden;padding:10px 5px;word-break:normal;}
+		.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+		  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+		.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+		.tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top}
+		input {text-align:center;}
+		.topinput {width : 370px ; color : blue }
+		.img1 {width : 80%;}
+		</style>
+	
+	
+		<table class="tg">
+		<thead>
+		  <tr>
+			<th class="tg-0pky" rowspan="2">기준금액</th>
+			<th class="tg-0pky" colspan="2">TPS 결합고객</th>
+			<th class="tg-0pky" colspan="2">렌탈단독고객</th>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky">신용카드</td>
+			<td class="tg-0pky">자동이체</td>
+			<td class="tg-0pky">신용카드</td>
+			<td class="tg-0pky">자동이체</td>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			<td class="tg-0pky" rowspan="2">블루(1~3등급)</td>
+			<td class="tg-0pky"><output id="stps1" ></output></td>
+			<td class="tg-0pky"><output id="stps2" ></output></td>
+			<td class="tg-0pky"><output id="stps3" ></output></td>
+			<td class="tg-0pky"><output id="stps4" ></output></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky"><output id="stps5" ></output></td>
+			<td class="tg-0pky"><output id="stps6" ></output></td>
+			<td class="tg-0pky"><output id="stps7" ></output></td>
+			<td class="tg-0pky"><output id="stps8" ></output></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky" rowspan="2">그린(4~5등급)</td>
+			<td class="tg-0pky"><output id="stps9" ></output></td>
+			<td class="tg-0pky"><output id="stps10" ></output></td>
+			<td class="tg-0pky"><output id="stps11" ></output></td>
+			<td class="tg-0pky"><output id="stps12" ></output></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky"><output id="stps13" ></output></td>
+			<td class="tg-0pky"><output id="stps14" ></output></td>
+			<td class="tg-0pky"><output id="stps15" ></output></td>
+			<td class="tg-0pky"><output id="stps16" ></output></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky" rowspan="2">엘로우(6~7등급)</td>
+			<td class="tg-0pky"><output id="stps17" ></output></td>
+			<td class="tg-0pky"><output id="stps18" ></output></td>
+			<td class="tg-0pky"><output id="stps19" ></output></td>
+			<td class="tg-0pky"><output id="stps20" ></output></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky"><output id="stps21" ></output></td>
+			<td class="tg-0pky"><output id="stps22" ></output></td>
+			<td class="tg-0pky"><output id="stps23" ></output></td>
+			<td class="tg-0pky"><output id="stps24" ></output></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0pky" colspan="5"> 특별한도 : (단독)안마의자, 에어컨  (TPS)김치냉장고, 세탁기 </td>
+			
+		  </tr>
+		  <tr>
+			<td class="tg-0pky" style="color: green;"> 그린등급 신용카드 </td>
+			<td class="tg-0pky" colspan="4"> <input type="text" id="air" style="width: 100px;"> <input type="text" id="airover" style="width: 120px; border: 0cm none; color:  red;">  </td>
+		
+		  </tr>
+
+		</tbody>
+		</table>
+<br>
+<a href="#" class="retal1" onclick="reset()" >초기화</a>
 
 
-		<!--신규금액 입력 받는곳-->
+		<table class="tg1">
+			<thead>
+			  <tr>
+				<th class="tg-0lax" rowspan="5"> <img src="bono2.png" style width="110;" height="100"> </th>
+				<th class="tg-0lax" colspan="3"><input placeholder="사용중 총금액" type="text" id="now" onkeyup="inputNumberAutoComma(this), enterkey1(1);">원  </th>
+			  </tr>
+			  <tr>
+				<td class="tg-0lax"><input placeholder="신규1" type="text" id="input1" onkeyup="inputNumberAutoComma(this),enterkey1(1)"> 원</td>
+				<td class="tg-0lax"><input style="margin-left:11px;" type="button" id="m36" value="36" onclick="a(36,1)"> 
+					<input type="button" id="m48" value="48" onclick="a(48,1)"> 
+					<input type="button" id="m60" value="60" onclick="a(60,1)"></td>
+				<td class="tg-0lax"><input style="width : 100px;margin-left:11px;" type="text" id="output1"> </td>
+			  </tr>
+			  <tr>
+				<td class="tg-0lax"><input placeholder="신규2"type="text" id="input2"onkeyup="inputNumberAutoComma(this),enterkey1(2)"> 원</td>
+				<td class="tg-0lax"><input style="margin-left:11px;" type="button" id="m36" value="36" onclick="a(36,2)"> 
+					<input type="button" id="m48" value="48" onclick="a(48,2)"> 
+					<input type="button" id="m60" value="60" onclick="a(60,2)"></td>
+				<td class="tg-0lax"><input style="width : 100px;margin-left:11px;" type="text" id="output2"> </td>
+			  </tr>
+			  <tr>
+				<td class="tg-0lax"><input placeholder="신규3"type="text" id="input3"onkeyup="inputNumberAutoComma(this),enterkey1(3)"> 원</td>
+				<td class="tg-0lax"><input style="margin-left:11px;" type="button" id="mmm36" value="36" onclick="a(36,3)"> 
+					<input type="button" id="mmm48" value="48" onclick="a(48,3)"> 
+					<input type="button" id="mmm60" value="60" onclick="a(60,3)"> </td>
+				<td class="tg-0lax"><input style="width : 100px;margin-left:11px;" type="text" id="output3"></td>
+			  </tr>
+			  <tr>
+				<td class="tg-0lax" ></td>
+				<td class="tg-0lax" colspan="2"><input value="월총금액" class="subtot1"   type="text" id="subtot" style="width: 100px;" > / <input type="text" id="tot" style="width: 100px;"></td>
+			  </tr>
+			</thead>
+			</table>
+
+		<br>
+		
+		<!--신규금액 입력 받는곳
 
 <br>
-<!-- <a style="font-size:18px; font-weight:600;">사용중 총금액</a> <br>-->
+ <a style="font-size:18px; font-weight:600;">사용중 총금액</a> <br>
 <input placeholder="사용중 총금액" type="text" id="now" onkeyup="inputNumberAutoComma(this), enterkey1(1);">원 
 <br><br>
 
-<!--<a style="font-size:18px; font-weight:600;">신규 월 요금 입력 </a>-->
+<a style="font-size:18px; font-weight:600;">신규 월 요금 입력 </a>
 <section id ="prod">
  <input placeholder="신규1" type="text" id="input1" onkeyup="inputNumberAutoComma(this),enterkey1(1)"> 원
  <input style="margin-left:11px;" type="button" id="m36" value="36" onclick="a(36,1)"> 
@@ -112,103 +227,24 @@ width: 100px;
 <input type="text" id="tot" style="width: 100px;">
 
 <br>
-<br><br>
-<strong> <a style="color: green;"> * 특별한도 * 그린등급 카드결제시</a><br>(렌탈단독) 에어컨, 안마의자 / (TPS) 김치냉장고, 세탁기 가능여부 </strong><br>
-
-<input type="text" id="air" style="width: 100px;">
-<input type="text" id="airover" style="width: 120px; border: 0cm none; color:  red;">
-
-
-<br><br>
+<br> -->
 <!-- 블루등급 신용카드를 사용하는 TPS고객 가능 총합계 금액 <br>
 <input type="text" id="tot21" ><br><br>
 블루등급 신용카드를 사용하는 TPS고객 가능 월한도 금액 (36개월) <br>
 <input type="text" id="tot3" ><br> -->
 
 <!-- (가능한도 : <a style="color: blue;"> 파란색 가능 금액 </a> / <a style="color: red;"> 빨간색 불가능</a>)-->
-<a href="#" class="a111" onclick="aa1(36)" >가능 한도</a>
-<a href="#" class="aaa2" onclick="a(36)" >품의 가능 여부</a>
-<br><br>
 
-	<style type="text/css">
-	.tg  {border-collapse:collapse;border-spacing:0;}
-	.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-	  overflow:hidden;padding:10px 5px;word-break:normal;}
-	.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-	  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-	.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
-	.tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top}
-	input {text-align:center;}
-	.topinput {width : 370px ; color : blue }
-	.img1 {width : 80%;}
-	</style>
-
-
-	<table class="tg">
-	<thead>
-	  <tr>
-		<th class="tg-0pky" rowspan="2">기준금액</th>
-		<th class="tg-0pky" colspan="2">TPS 결합고객</th>
-		<th class="tg-0pky" colspan="2">렌탈단독고객</th>
-	  </tr>
-	  <tr>
-		<td class="tg-0pky">신용카드</td>
-		<td class="tg-0pky">자동이체</td>
-		<td class="tg-0pky">신용카드</td>
-		<td class="tg-0pky">자동이체</td>
-	  </tr>
-	</thead>
-	<tbody>
-	  <tr>
-		<td class="tg-0pky" rowspan="2">블루(1~3등급)</td>
-		<td class="tg-0pky"><output id="stps1" ></output></td>
-		<td class="tg-0pky"><output id="stps2" ></output></td>
-		<td class="tg-0pky"><output id="stps3" ></output></td>
-		<td class="tg-0pky"><output id="stps4" ></output></td>
-	  </tr>
-	  <tr>
-		<td class="tg-0pky"><output id="stps5" ></output></td>
-		<td class="tg-0pky"><output id="stps6" ></output></td>
-		<td class="tg-0pky"><output id="stps7" ></output></td>
-		<td class="tg-0pky"><output id="stps8" ></output></td>
-	  </tr>
-	  <tr>
-		<td class="tg-0pky" rowspan="2">그린(4~5등급)</td>
-		<td class="tg-0pky"><output id="stps9" ></output></td>
-		<td class="tg-0pky"><output id="stps10" ></output></td>
-		<td class="tg-0pky"><output id="stps11" ></output></td>
-		<td class="tg-0pky"><output id="stps12" ></output></td>
-	  </tr>
-	  <tr>
-		<td class="tg-0pky"><output id="stps13" ></output></td>
-		<td class="tg-0pky"><output id="stps14" ></output></td>
-		<td class="tg-0pky"><output id="stps15" ></output></td>
-		<td class="tg-0pky"><output id="stps16" ></output></td>
-	  </tr>
-	  <tr>
-		<td class="tg-0pky" rowspan="2">엘로우(6~7등급)</td>
-		<td class="tg-0pky"><output id="stps17" ></output></td>
-		<td class="tg-0pky"><output id="stps18" ></output></td>
-		<td class="tg-0pky"><output id="stps19" ></output></td>
-		<td class="tg-0pky"><output id="stps20" ></output></td>
-	  </tr>
-	  <tr>
-		<td class="tg-0pky"><output id="stps21" ></output></td>
-		<td class="tg-0pky"><output id="stps22" ></output></td>
-		<td class="tg-0pky"><output id="stps23" ></output></td>
-		<td class="tg-0pky"><output id="stps24" ></output></td>
-	  </tr>
-	</tbody>
-	</table>
-
-<br>
-	
-<fieldset class = "topinput">    
-	<legend> 제품 검색 (코드 or 제품명 입력) </legend>
-	<input type="text" id="link" >
+<a href="#" class="retal1">제품검색</a>
+	<fieldset class="topinput" style="
+    width: 470px;
+">    
+	<legend>(코드 or 제품명 입력) </legend>
+	<input type="text" id="link">
 	<button type="button" onclick="makeLink()">검색</button>
-	<div id = "click"> 제품 스팩 검색 </div>
+	<div id="click"><a href="http://m.빌리고.com/model/search.php?ss_tx=RH81R9151S8" target="_blank"> RH81R9151S8링크 &lt;클릭&gt; </a></div>
 </fieldset>
+
 <script src="button.js"></script>
 
 </body>
